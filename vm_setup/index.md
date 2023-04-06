@@ -35,6 +35,7 @@ has_toc: false
 
 3. ## Install ubuntu
     - Press "yes" a bunch
+    
     ### Turn off LVM
     - Make sure to Turn off LVM!
     - Again, **UNCHECK** "Setup this disk as an LVM group"
