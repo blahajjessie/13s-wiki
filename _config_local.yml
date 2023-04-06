@@ -13,3 +13,19 @@ aux_links:
 
 plugins:
   - jekyll-default-layout
+
+logo: "monke.png"
+
+callouts:
+  warning:
+    title: Warning!
+    color: red
+  
+  tip:
+      title: Tip!
+      color: yellow
+
+  note:
+    title: Note!
+    color: blue
+
