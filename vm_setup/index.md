@@ -34,10 +34,17 @@ has_toc: false
 
 
 3. ## Install ubuntu
-
+    - Press "yes" a bunch
+    ### Turn off LVM
     - Make sure to Turn off LVM!
     - Again, **UNCHECK** "Setup this disk as an LVM group"
     ![lvm_no](/13s-wiki/vm_setup/imgs/ubuntu_steps/disk.png)
+
+    - press "Yes" or "ok" a bunch
+    - Check the "Install openssh server" option
+    - Setup a username and password. These can be anything you want
+    - You can set the server name to anything you want
+    - press "yes" some more
 
 4. ## Powering off your VM
 
