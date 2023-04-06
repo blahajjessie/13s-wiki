@@ -5,7 +5,7 @@ description: Tips and guides to do everything you will need in cse13s
 theme: "just-the-docs"
 remote_theme: pmarsceill/just-the-docs
 color_scheme: dark
-
+url: 13s-wiki.jessie.id
 aux_links:
 
   Template Repository: https://github.com/just-the-docs/just-the-docs-template
