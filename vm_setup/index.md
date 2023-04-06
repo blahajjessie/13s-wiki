@@ -26,7 +26,14 @@ You will also need quite a bit (probably 40gb) of free space. If you do not have
 
 2. ## Install your vm software
 
+[For Apple Silicon mac users](mac)
+
+[For Other systems](windows)
+
+
 3. ## Install ubunutu
+
+
 
 4. ## Install required sofware and setup
 
