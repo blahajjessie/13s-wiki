@@ -7,37 +7,41 @@ nav_order: 2
 
 # Setting up UTM
 
-1. ## Download UTM
 
-    Visit the website for UTM and download the latest version
-    ![download](imgs/mac_inst/dw_utm.png)
+## Download UTM
 
-2. ## Install 
+Visit the website for UTM and download the latest version
+![download](imgs/mac_inst/dw_utm.png)
 
-    - Install UTM as you would any other Mac Application. Then, open it
+## Install 
 
-3. ## Create a new VM
+- Install UTM as you would any other Mac Application. Then, open it
 
-    1.  ### Press "Create VM"
-        ![create](imgs/mac_inst/create_vm.png)
+## Create a new VM
 
-    2.  ### Make sure it is "Virtualized" not "Emulated
-        ![virtualize](imgs/mac_inst/virt.png)
+### Press "Create VM"
+![create](imgs/mac_inst/create_vm.png)
 
-    3. ### Add the ISO file that you downloaded. 
+### Make sure it is "Virtualized" not "Emulated
+![virtualize](imgs/mac_inst/virt.png)
 
-        Unlike me, **make sure that you are using the ARM64 version**
-        ![iso](imgs/mac_inst/iso.png)
+### Add the ISO file that you downloaded. 
+
+Unlike me, **make sure that you are using the ARM64 version**
+![iso](imgs/mac_inst/iso.png)
 
 
-    4.  ### Configure your storage, ram and CPU Cores
-        - you *should* increase your ram to at least 4gb, or more if you have any to spare
-        - you *should not* change the cores
-        - you *should* allocate at least 32 gb for your virtual disk file
-        ![lots](imgs/mac_inst/stor_sz.png)
+### Configure your storage, ram and CPU Cores
+- you *should* increase your ram to at least 4gb, or more if you have any to spare
+- you *should not* change the cores
+- you *should* allocate at least 32 gb for your virtual disk file
+![lots](imgs/mac_inst/stor_sz.png)
 
-    5. ### Press next on other options
-        - leave the shared directory page untouched
+### Press next on other options
+- leave the shared directory page untouched
 
-4. [Return back to main setup](index)
+## Setup Port forwarding and SSH
+- Open network settings
+
+### [Return back to main setup](index)
 
