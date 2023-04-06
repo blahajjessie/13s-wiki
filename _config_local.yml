@@ -2,8 +2,8 @@ title: The ultimate guide to cse13s
 description: Tips and guides to do everything you will need in cse13s
 
 # Theme
-remote_theme: just-the-docs/just-the-docs
-#theme: "just-the-docs"
+#remote_theme: just-the-docs/just-the-docs
+theme: "just-the-docs"
 
 color_scheme: dark
 url: 13s-wiki.jessie.id
