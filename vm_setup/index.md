@@ -35,12 +35,9 @@ has_toc: false
 
 3. ## Install ubuntu
     - Press "yes" a bunch
-    
-    ### Turn off LVM
     - Make sure to Turn off LVM!
     - Again, **UNCHECK** "Setup this disk as an LVM group"
-    ![lvm_no](/13s-wiki/vm_setup/imgs/ubuntu_steps/disk.png)
-
+    ![lvm_no](imgs/ubuntu_steps/disk.png)
     - press "Yes" or "ok" a bunch
     - Check the "Install openssh server" option
     - Setup a username and password. These can be anything you want
@@ -55,19 +52,21 @@ has_toc: false
 4. ## Install required sofware and setup
 
     We now have a virtual machine, but while we *can* use it right now, there are many tools that we need for this class, and some tools that we can use to simplify this process. 
-    ### Required tools:
-    This is *not* the definiative list of everything we need for this class. It is *only* what you need to get started with the first few assignments. As the class progresses, you will be given more software you will need to install. Thus, it is best that you familarize yourself with [unix commands](unix_commands)
 
-    - ssh
-    - git
-    - clang
-    - clang-format
+### Required tools:
 
+This is *not* the definiative list of everything we need for this class. It is *only* what you need to get started with the first few assignments. As the class progresses, you will be given more software you will need to install. Thus, it is best that you familarize yourself with [unix commands](unix_commands)
 
-    ### Helpful additions:
+- ssh
+- git
+- clang
+- clang-format
 
+### Helpful additions:
+    
+- idk yet
 
 ## See Also:
 
-    - [unix commands](unix_commands)
-    - interfacing with your vm
+- [unix commands](unix_commands)
+- interfacing with your vm
