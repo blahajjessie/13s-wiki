@@ -7,7 +7,7 @@ nav_order: 1
 
 # Installing and Configuring Virtualbox 
 
-1. ## Download virtualbox
+1. ## Download <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Virtualbox</a>
 
 2. ## Creating a VM
 - Press "New"
@@ -45,3 +45,5 @@ nav_order: 1
 
       
 8. ## Press Start
+
+9. [Return back to main setup](index)

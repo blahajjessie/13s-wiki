@@ -39,4 +39,5 @@ nav_order: 2
     5. ### Press next on other options
         - leave the shared directory page untouched
 
+4. [Return back to main setup](index)
 

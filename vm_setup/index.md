@@ -17,8 +17,10 @@ has_toc: false
 1. ## Prep your machiine
 Before you begin, make sure that you have downloaded the ubuntu image for your class and your architecture. For **Spring 2023 CSE13s** This is ubuntu 22.10 x68_64 (also called amd64) or ubuntu 22.10 arm64. 
 
-- If you have an Apple silicon mac (M1, M2, etc), You will need to use the arm64 versions.
-- If you have a Intel/AMD windows computer, you will need the amd64 version. You will still need this if you have an Intel CPU
+**For Any system, You want the 22.10 Server versions**
+
+- If you have an Apple silicon mac (M1, M2, etc), You will need to use the [arm64 versions](https://ubuntu.com/download/server/arm).**Be sure to use the 22.10 (not 22.04) Server version**
+- If you have a Intel/AMD windows computer, you will need the (amd64 version)[https://ubuntu.com/download/server]. You will still need this if you have an Intel CPU. **Be sure to use the 22.10 (not 22.04) Server version**
 - If you have an Intel Mac, follow the windows instructions
 - If your configuration is not one of these, please contact a Jess or TA during lab sections. 
 
@@ -31,7 +33,7 @@ You will also need quite a bit (probably 40gb) of free space. If you do not have
 [For Other systems](windows)
 
 
-3. ## Install ubunutu
+3. ## Install ubuntu
 
 
 
