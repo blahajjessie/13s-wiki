@@ -3,9 +3,10 @@ title: VM Installation and Configuration
 layout: default
 has_children: true
 has_toc: false
+nav_order: 2
 ---
 
-
+# Configuring Your VM
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -34,15 +35,10 @@ You will also need quite a bit (probably 40gb) of free space. If you do not have
 
 
 ## Install ubuntu
-- Press "yes" a bunch
-- Make sure to Turn off LVM!
-- Again, **UNCHECK** "Setup this disk as an LVM group"
-![lvm_no](imgs/ubuntu_steps/disk.png)
-- press "Yes" or "ok" a bunch
-- Check the "Install openssh server" option
-- Setup a username and password. These can be anything you want
-- You can set the server name to anything you want
-- press "yes" some more
+
+[These instructions have been configured for Ubuntu 22.10 Server](ubuntu_2210server)
+
+This list may be updated to include other versions later. 
 
 ## Powering off your VM
 
@@ -68,6 +64,6 @@ This is *not* the definiative list of everything we need for this class. It is *
 
 ## See Also:
 
-- [unix commands](unix_commands)
+- [unix commands](/13s-wiki/unix_commands)
 - [interfacing with your vm](interface)
 

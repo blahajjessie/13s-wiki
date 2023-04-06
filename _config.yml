@@ -3,6 +3,7 @@ description: Tips and guides to do everything you will need in cse13s
 theme: just-the-docs
 
 url: 13s-wiki.jessie.id
+color_scheme: dark
 
 aux_links:
   Template Repository: https://github.com/just-the-docs/just-the-docs-template
