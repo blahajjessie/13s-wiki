@@ -35,9 +35,14 @@ has_toc: false
 
 3. ## Install ubuntu
 
+    - Make sure to Turn off LVM!
+    - Again, **UNCHECK** "Setup this disk as an LVM group"
+    ![lvm_no](/13s-wiki/vm_setup/imgs/ubuntu_steps/disk.png)
+
 4. ## Powering off your VM
 
-Be sure to *NEVER* forcefully power off your vm. If you're using virtualbox, this means only using the "Send the shutdown signal" option, the "Save state" option (this is not the same thing as shutting down, and requires disk space), or using the terminal to shutdown. To shutdown your vm, you can use `sudo shutdown -h now` in terminal. 
+    Be sure to *NEVER* forcefully power off your vm. 
+    If you're using virtualbox, this means only using the "Send the shutdown signal" option, the "Save state" option (this is not the same thing as shutting down, and requires disk space), or using the terminal to shutdown. To shutdown your vm from the terminal (The only option using UTM), you can use `sudo shutdown -h now` in terminal. 
 
 4. ## Install required sofware and setup
 
