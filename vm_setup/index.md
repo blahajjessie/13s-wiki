@@ -15,7 +15,7 @@ has_toc: false
 
 
 1. ## Prep your machiine
-Before you begin, make sure that you have downloaded the ubuntu image for your class and your architecture. For **Spring 2023 CSE13s** This is ubuntu 22.10 x68_64 (also called amd64) or ubuntu 22.10 arm64. 
+Before you begin, make sure that you have downloaded the ubuntu image for your class and your architecture. For **Spring 2023 CSE13s With Prof. Veenstra** This is ubuntu 22.10 x68_64 (also called amd64) or ubuntu 22.10 arm64. If you are viewing this in the future or for a different class or section, these instruction may be different, or require different sofware. Check with your instructor. 
 
 **For Any system, You want the 22.10 Server versions**
 
