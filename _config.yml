@@ -1,8 +1,12 @@
 title: The ultimate guide to cse13s
 description: Tips and guides to do everything you will need in cse13s
-theme: just-the-docs
+# Remote Setting
+baseurl: "/guidelines"
+# url: ""
 
-url: 13s-wiki.jessie.id
+# Theme
+# theme: "just-the-docs"
+remote_theme: pmarsceill/just-the-docs
 color_scheme: dark
 
 aux_links:

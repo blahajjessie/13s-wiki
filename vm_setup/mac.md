@@ -6,6 +6,7 @@ nav_order: 2
 ---
 
 # Setting up UTM
+{: .no_toc }
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -45,7 +46,14 @@ Unlike me, **make sure that you are using the ARM64 version**
 - leave the shared directory page untouched
 
 ## Setup Port forwarding and SSH
-- Open network settings
+- Open settings 
+- navigate to network settings
+- Change network mode to "Emulated VLAN" (this may not be needed, test)
+- The option for "port forward" Should appear, open that menu
+- Press "new" in the lower right corner
+![add port](imgs/mac_inst/add_prt.png)
+- Set the host port to 2222, and the guest port to 22
+- Save and close
 
 ## [Return back to main setup](index)
 

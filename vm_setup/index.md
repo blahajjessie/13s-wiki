@@ -7,7 +7,7 @@ nav_order: 2
 ---
 
 # Configuring Your VM
-
+{: .no_toc}
 ## Table of contents
 {: .no_toc .text-delta }
 
@@ -15,8 +15,8 @@ nav_order: 2
 {:toc}
 
 
-## Prep your machiine
-Before you begin, make sure that you have downloaded the ubuntu image for your class and your architecture. For **Spring 2023 CSE13s With Prof. Veenstra** This is ubuntu 22.10 x68_64 (also called amd64) or ubuntu 22.10 arm64. If you are viewing this in the future or for a different class or section, these instruction may be different, or require different sofware. Check with your instructor. 
+## Prep Your Machine
+Before you begin, make sure that you have downloaded the ubuntu image for your class and your architecture. For **Spring 2023 CSE13s With Prof. Veenstra** This is ubuntu 22.10 x68_64 (also called amd64) or ubuntu 22.10 arm64. If you are viewing this in the future or for a different class or section, these instruction may be different, or require different software. Check with your instructor. 
 
 **For Any system, You want the 22.10 Server versions**
 
@@ -45,20 +45,20 @@ This list may be updated to include other versions later.
 Be sure to *NEVER* forcefully power off your vm. 
 If you're using virtualbox, this means only using the "Send the shutdown signal" option, the "Save state" option (this is not the same thing as shutting down, and requires disk space), or using the terminal to shutdown. To shutdown your vm from the terminal (The only option using UTM), you can use `sudo shutdown -h now` in terminal. 
 
-## Install required sofware and setup
+## Install required software and setup
 
 We now have a virtual machine, but while we *can* use it right now, there are many tools that we need for this class, and some tools that we can use to simplify this process. 
 
-### Required tools:
+### Required tools
 
-This is *not* the definiative list of everything we need for this class. It is *only* what you need to get started with the first few assignments. As the class progresses, you will be given more software you will need to install. Thus, it is best that you familarize yourself with [unix commands](unix_commands)
+This is *not* the definitive list of everything we need for this class. It is *only* what you need to get started with the first few assignments. As the class progresses, you will be given more software you will need to install. Thus, it is best that you familiarize yourself with [unix commands](unix_commands)
 
 - ssh
 - git
 - clang
 - clang-format
 
-### Helpful additions:
+### Helpful additions
     
 - idk yet
 
