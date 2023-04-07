@@ -9,6 +9,46 @@ nav_order: 1
 
 1. ## Download <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Virtualbox</a>
 
+### Enable virtualization
+{: .warning}
+If you're on a windows/linux computer make sure that you have Virtualization on in your bios settings. See steps below for info
+
+<details closed>
+<summary>Linux</summary>
+
+<ul>
+<li> run `systemctl reboot --firmware-setup` </li> 
+<li> look around your BIOS, and turn on virtualization</li>
+<li> this will be called: VT-x, AMD-V, SVM, or hardware virtualization</li>
+</ul>
+
+</details>
+
+<details closed>
+<summary>Windows</summary>
+<br>
+To Check if you have virtualization enabled: 
+<ul>
+
+<li>Open task manager</li>
+<li>go to advanced -> performance -> cpu</li>
+<li>check if Virtualization is enabled</li>
+<li>If it is, you do not need to continue </li>
+</ul>
+<br>
+To Enable Virtualization
+<ul>
+<li> Open the windows menu, and press the power options</li> 
+<li> hold `shift` and press restart</li> 
+<li>you should then enter a windows boot menu, go to advanced options</li> 
+<li> go to "reboot into UEFI settings"</li> 
+<li> look around your BIOS, and turn on virtualization</li> 
+<li> this will be called: VT-x, AMD-V, SVM, or hardware virtualization </li> 
+</ul>
+ </details> 
+
+ Users of Mac's do not need to worry about this.
+
 2. ## Creating a VM
 - Press "New"
 - Give it a name (like 13s)

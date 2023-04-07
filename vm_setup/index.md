@@ -16,7 +16,11 @@ nav_order: 2
 
 
 ## Prep Your Machine
-Before you begin, make sure that you have downloaded the ubuntu image for your class and your architecture. For **Spring 2023 CSE13s With Prof. Veenstra** This is ubuntu 22.10 x68_64 (also called amd64) or ubuntu 22.10 arm64. If you are viewing this in the future or for a different class or section, these instruction may be different, or require different software. Check with your instructor. 
+
+{: .tip} 
+These instructions (especially the software versions) are only applicable for Prof. Veenstra in Spring 2023. e viewing this in the future or for a different class or section, these instruction may be different, or require different software. Check with your instructor. 
+
+Before you begin, make sure that you have downloaded the ubuntu image for your class and your architecture. This is ubuntu 22.10 x68_64 (also called amd64) or ubuntu 22.10 arm64. 
 
 **For Any system, You want the 22.10 Server versions**
 
@@ -42,7 +46,9 @@ This list may be updated to include other versions later.
 
 ## Powering off your VM
 
-Be sure to *NEVER* forcefully power off your vm. 
+{: .warning}
+Be sure to **NEVER** forcefully power off your vm. 
+
 If you're using virtualbox, this means only using the "Send the shutdown signal" option, the "Save state" option (this is not the same thing as shutting down, and requires disk space), or using the terminal to shutdown. To shutdown your vm from the terminal (The only option using UTM), you can use `sudo shutdown -h now` in terminal. 
 
 ## Install required software and setup
