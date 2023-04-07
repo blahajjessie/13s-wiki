@@ -38,6 +38,10 @@ You will also need quite a bit (probably 40gb) of free space. If you do not have
 [For Other systems](windows)
 
 
+{: .warning}
+**DO NOT** try to use WSL. Other Virtual Machine platforms are possible, but not recommended or supported.
+
+
 ## Install ubuntu
 
 [These instructions have been configured for Ubuntu 22.10 Server](ubuntu_2210server)
