@@ -18,7 +18,7 @@ nav_order: 2
 ## Prep Your Machine
 
 {: .tip} 
-These instructions (especially the software versions) are only applicable for Prof. Veenstra in Spring 2023. e viewing this in the future or for a different class or section, these instruction may be different, or require different software. Check with your instructor. 
+These instructions (especially the software versions) are only applicable for Prof. Veenstra in Spring 2023. If you are viewing this in the future or for a different class or section, these instruction may be different, or require different software. Check with your instructor. 
 
 Before you begin, make sure that you have downloaded the ubuntu image for your class and your architecture. This is ubuntu 22.10 x68_64 (also called amd64) or ubuntu 22.10 arm64. 
 
