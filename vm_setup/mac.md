@@ -8,11 +8,16 @@ nav_order: 2
 # Setting up UTM
 {: .no_toc }
 
+{: .tip}
+If you have an Intel Mac, you're in the wrong place! <br> Look for the Windows/Virtualbox instructions!
+
 ## Table of contents
 {: .no_toc .text-delta }
 
 1. TOC
 {:toc}
+
+
 
 ## Download UTM
 
@@ -32,7 +37,10 @@ Visit the website for UTM and download the latest version
 
 3.  Add the ISO file that you downloaded. 
 
+{: .tip}
 Unlike me, **make sure that you are using the ARM64 version**
+<br> Also, make sure it is `ubuntu 22.10-live-server-arm64`
+
 ![iso](imgs/mac_inst/iso.png)
 
 
