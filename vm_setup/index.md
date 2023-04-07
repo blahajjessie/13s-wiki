@@ -25,7 +25,7 @@ Before you begin, make sure that you have downloaded the ubuntu image for your c
 **For Any system, You want the 22.10 Server versions**
 
 - If you have an Apple silicon mac (M1, M2, etc), You will need to use the [arm64 versions](https://ubuntu.com/download/server/arm).**Be sure to use the 22.10 (not 22.04) Server version**
-- If you have a Intel/AMD windows computer, you will need the (amd64 version)[https://ubuntu.com/download/server]. You will still need this if you have an Intel CPU. **Be sure to use the 22.10 (not 22.04) Server version**
+- If you have a Intel/AMD windows computer, you will need the [amd64 version](https://ubuntu.com/download/server). You will still need this if you have an Intel CPU. **Be sure to use the 22.10 (not 22.04) Server version**
 - If you have an Intel Mac, follow the windows instructions
 - If your configuration is not one of these, please contact a Jess or TA during lab sections. 
 
