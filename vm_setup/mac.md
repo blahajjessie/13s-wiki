@@ -68,7 +68,7 @@ Unlike me, **make sure that you are using the ARM64 version**
 
 - [Vm setup](index)
 - [windows and intel mac instructions](windows)
-- [Installing Ubuntu](ubutnu_2210server)
+- [Installing Ubuntu](ubutnu_2204server)
 
 ## Credits
 - credit to gary for letting me use his computer to take all the screenshots
