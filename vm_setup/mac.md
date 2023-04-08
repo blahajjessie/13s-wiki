@@ -18,7 +18,6 @@ If you have an Intel Mac, you're in the wrong place! <br> Look for the Windows/V
 {:toc}
 
 
-
 ## Download UTM
 
 Visit the website for UTM and download the latest version
@@ -39,7 +38,7 @@ Visit the website for UTM and download the latest version
 
 {: .tip}
 Unlike me, **make sure that you are using the ARM64 version**
-<br> Also, make sure it is `ubuntu 22.10-live-server-arm64`
+<br> Also, make sure it is `ubuntu 22.04-live-server-arm64`
 
 ![iso](imgs/mac_inst/iso.png)
 

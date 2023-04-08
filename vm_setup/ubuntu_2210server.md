@@ -42,3 +42,27 @@ has_toc: false
 
 ## Finishing touches
 - press "yes" some more
+
+## Eject the Installation disk.
+
+Instructions will vary depending on what Virtual Machine software you are using
+<details>
+<summary>UTM</summary>
+
+<ul>
+<li> Navigate to settings, Drive settings, USB</li> 
+<img src="imgs/mac_inst/eject.png"> 
+<li> Press "Delete Drive"</li>
+</ul>
+
+</details>
+
+<details>
+<summary>Virtualbox</summary>
+
+<li> Navigate to Devices, in the top bar, optical drives</li> 
+<li> Press "Remove Disk From Virtual Drive"</li>
+<img src="imgs/ubuntu_steps/eject.png"> 
+
+</details>
+
