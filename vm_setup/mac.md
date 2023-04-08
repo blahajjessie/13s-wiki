@@ -77,7 +77,7 @@ Port forwarding allows us to access services running on our guest OS (Virtual ma
 
 - [Vm setup](index)
 - [windows and intel mac instructions](windows)
-- [Installing Ubuntu](ubutnu_2204server)
+- [Installing Ubuntu](ubutnu_2204_server)
 - [Interfacing with your VM](/13s-wiki/usage/interface.md)
 
 ## Credits

@@ -60,7 +60,7 @@ To Enable Virtualization
 - Press "New"
 - Give it a name (like 13s)
 - Change the type to Linux
-- Change the version to "Other Linux (64 bit)
+- Change the version to "Other Linux (64 bit)" or "Ubuntu 22.04 Jammy Jellyfish" (it does not matter)
 
 ## Configure Your Resources
 - Increase the memory, to at least 4GB and ideally 8GB

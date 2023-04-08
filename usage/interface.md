@@ -2,7 +2,7 @@
 title: Interfacing with your VM
 layout: default
 parent: Using Ubuntu
-nav_order: 1
+nav_order: 2
 ---
 
 # Installing and Configuring Virtualbox 
