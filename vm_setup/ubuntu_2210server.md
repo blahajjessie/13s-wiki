@@ -66,3 +66,10 @@ Instructions will vary depending on what Virtual Machine software you are using
 
 </details>
 
+Once you have ejected your disk, You can restart your VM, and you should be greeted with a terminal. Upon a reboot, you should be greeted with a login prompt. 
+
+
+
+## See also:
+- [Using Unix](/usage/index)
+- [Basic Unix Commands](/usage/unix_commands)
