@@ -65,12 +65,14 @@ We now have a virtual machine, but while we *can* use it right now, there are ma
 
 ### Required tools
 
-This is *not* the definitive list of everything we need for this class. It is *only* what you need to get started with the first few assignments. As the class progresses, you will be given more software you will need to install. Thus, it is best that you familiarize yourself with [unix commands](13s-wiki/usage/unix_commands)
+This is *not* the definitive list of everything we need for this class. It is *only* what you need to get started with the first few assignments. As the class progresses, you will be given more software you will need to install. Thus, it is best that you familiarize yourself with [unix commands](13s-wiki/usage/unix_commands). Guides to how to instal these are [here](/13s-wiki/usage)
 
 - ssh
 - git
 - clang
 - clang-format
+- valgrind
+- make
 
 ### Helpful additions
     

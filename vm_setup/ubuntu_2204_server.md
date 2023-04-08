@@ -42,6 +42,7 @@ has_toc: false
 
 ## Finishing touches
 - press "yes" some more
+- If you get a prompt to "Enable Ubuntu pro", select "No"
 
 ## Eject the Installation disk.
 

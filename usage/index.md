@@ -14,9 +14,15 @@ nav_order: 3
 1. TOC
 {:toc}
 
+
+## About UNIX and the command line
+Before the desktop, there was the terminal. Before the terminal, there was the [teleprinter](https://en.wikipedia.org/wiki/Teleprinter). Even modern computers have some remnants of the teletype and terminal. (try naming a folder `NUL` on Windows, for example)
+
+In this class, you will be required to get familiarity with 
+
 ## Required Software
 You will need the following packages for this class (for now)
-If you know what you're doing, you can install them now. If you dont, wait until i finish the guide
+If you know what you're doing, you can install them now. If you don't, wait until I finish the guide
 
 - `git` (should already be installed)
 - `clang`
@@ -24,6 +30,7 @@ If you know what you're doing, you can install them now. If you dont, wait until
 - `clang-format`
 - `gdb`
 - `valgrind`
+- `vim`
 
 ## Getting git setup
 
