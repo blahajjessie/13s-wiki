@@ -53,6 +53,15 @@ Unlike me, **make sure that you are using the ARM64 version**
 - leave the shared directory page untouched
 
 ## Setup Port forwarding and SSH
+
+### About Port forwarding and SSH
+- ssh: **S**ecure **Sh**ell
+- Host OS: the OS that is running on your computer (Mac or Windows)
+- Guest OS: The os that we are running in our virtual machine. 
+
+Port forwarding allows us to access services running on our guest OS (Virtual machine) on our Host OS (computer). The service we will be using the most is `ssh`, which will be critical in this course, and probably later in life also. SSH runs on port 22 by default, but can be configured to use anything. Because we may want to run SSH on both our host and guest OSes, we can not use port 2222 for our guest OS ssh port. Therefore, we will use 2222, a (usually) open port that is often used as a backup for SSH. 
+
+### Instructions 
 - Open settings 
 - navigate to network settings
 - Change network mode to "Emulated VLAN" (this may not be needed, test)
