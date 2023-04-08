@@ -34,7 +34,17 @@ After that is the tilde (`~`). Between the hostname and the dollar sign is the c
 
 Finally, is the Dollar sign and a blinking cursor. This is where you type a command. If you ever see a dollar sign in a tutorial, do not type that into your terminal.
 
+## Copying and Pasting
+In the unix terminal, `ctrl` + c and `ctrl` + v do things you may not be used to. If you want to copy or paste on the terminal, you can use `ctrl` + `shift` + c/v. 
 
+## Console Codes
+As discussed above, keyboard shortcuts with the control key do things you may not expect. Here are a few that may be useful (and some that are not). It is also common to see `ctrl` written as `^`, so `ctrl` + c will be written as `^c`. Any other  parts of this guide will use this notation. 
+
+- `^c` This is probably the most important one. `^c` will send the kill signal to whatever program is running. This will end the program. It is very useful if your program is stuck in an infinite loop. 
+- `^d` This disconnects the terminal and closes it. When we run our programs it can also be used to signal `EOF` when reading from `stdin` (this probably looks like gibberish for now). 
+- `^r` This enters reverse search mode. Whatever you type is used to search the history of commands you have run and it autocompletes the most recent result.
+- 
+- `^g` This makes a sound. That's it.
 
 ## Required Software
 You will need the following packages for this class (for now)

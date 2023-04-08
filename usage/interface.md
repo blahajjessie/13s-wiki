@@ -28,6 +28,18 @@ First, on your host OS (not the VM), open a terminal emulator. On Mac, the `term
 
 
 Basic Usage of the `ssh` command is simple. ssh requires a few arguments: 
-- the username (you set this in your )
-- the server address (localhost, or your current local ip)
+- the username (you set this when you installed ubuntu)
+- the server address (`localhost`, or your current local ip)
 - the port number (if you followed the guide, its 2222)
+
+We can also see the usage of the `ssh` command by just typing `ssh` into your terminal. It will print all possible flags and options.
+
+To connect to our virtual machine, we need to run `ssh <user>@localhost -p <port>`
+
+## Logging in
+You should now see a prompt asking you for your password. Type that in, and press enter. Your terminal may change a bit, and you are now logged into your Virtual machine via SSH. 
+
+You have access to any files and programs on your virtual machine. To log out at any time, you can press `^d` (this is the same on a mac, not command), or type `exit` or `logout`.
+
+## 
+
