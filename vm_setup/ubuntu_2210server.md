@@ -3,6 +3,7 @@ title: Ubuntu Server
 layout: default
 has_toc: false
 nav_exclude: true
+search_exclude: true
 ---
 
 {: .warn}

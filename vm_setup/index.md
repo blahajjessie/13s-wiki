@@ -21,7 +21,7 @@ nav_order: 2
 These instructions (especially the software versions) are only applicable for Prof. Veenstra in Spring 2023. If you are viewing this in the future or for a different class or section, these instruction may be different, or require different software. Check with your instructor. 
 
 {: .note}
-If you have already installed Ubuntu 22.10, You are ok., butif you have time to reinstall, you can and should.
+If you have already installed Ubuntu 22.10, You are ok, but if you have time to reinstall, you can and should.
 
 Before you begin, make sure that you have downloaded the ubuntu image for your class and your architecture. This is ubuntu 22.04 x68_64 (also called amd64) or ubuntu 22.04 arm64. 
 
