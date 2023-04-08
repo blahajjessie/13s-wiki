@@ -48,7 +48,7 @@ You will also need quite a bit (probably 40gb) of free space. If you do not have
 
 ## Install ubuntu
 
-[These instructions have been configured for Ubuntu 22.04 Server](ubuntu_2204server)
+[These instructions have been configured for Ubuntu 22.04 Server](ubuntu_2204_server)
 
 This list may be updated to include other versions later. 
 
