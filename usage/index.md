@@ -67,6 +67,7 @@ You can now clone your git repo!
 
 
 ## Navigating the File system via terminal
+see [the page on files and directories](files_dirs)
 
 ## Installing Software
 

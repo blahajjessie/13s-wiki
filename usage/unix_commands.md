@@ -32,6 +32,8 @@ It is *very* hard to learn how to use something by reading a guide. Try these co
 ## `echo`
 The `echo` command writes any text following it to the terminal
 
+Try running `echo hello`
+
 ## `sudo`
 `sudo` is short for "Super User DO". It is a way of running a command as the root user (administrator) without being logged into the administrator account. By default, the root account is disabled, and you can only access it by running commands with `sudo`. 
 
@@ -45,13 +47,30 @@ To test the sudo command, you can run
 
 the `whoami` command returns the username of the account which ran the command. If you run `whoami` as sudo, you may notice that this will return `root`
 
+On the other hand, if you run `whoami`, it will return your username, not root.
+
+
 ## `apt`
 `apt` is a wrapper for `apt-get`. For most of your usage of debian based linux distributions (like ubuntu), you will want to use apt. 
 ### `apt update`
 
 
-##
+### `apt upgrade`
 
 
+### `apt install`
+
+### `apt remove`
 
 
+## Combining Commands
+
+While all of these commands aren't very powerful on their own, they become a lot more powerful when you can chain them together. 
+
+### The pipe
+the pipe (`|`) operator takes the output of one command and sends it to the next one. Tru running `echo hello | 
+
+### Redirects
+Most commands in bash have some input and some output. 
+
+### 
