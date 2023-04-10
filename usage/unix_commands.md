@@ -27,6 +27,8 @@ It is *very* hard to learn how to use something by reading a guide. Try these co
 ## The `man` pages
 `man` is short for manual. The manual pages are divided into chapters, each of which explain how to use various parts of the system. 
 
+To close a man page, simply type `q`
+
 `alias woman=man` if you want to be funny
 
 ## `echo`

@@ -69,7 +69,7 @@ given a file (or folder) and a destination, it moves the file to the destination
 ## `vim`
 Vim is a text editor that runs in the terminal. To open a file in vim type `vim <filename>`. You can also type a filename that doesn't exist to create a new file. Vim does not use the mouse (without extra configuration), and so everything you do is only using keyboard. You can find many vim cheatsheets on line, but the basics are as follows:
 
-There are many modes in vim. The most important are "normal mode" and "insert mode". Normal mode allows you to enter commands to edit the text. This includes things like find and replace, deleting multiple lines, or moving to a line number. Insert mode allows you to add text to the file, like your'e used to. 
+There are many modes in vim. The most important are "normal mode" and "insert mode". Normal mode allows you to enter commands to edit the text. This includes things like find and replace, deleting multiple lines, or moving to a line number. Insert mode allows you to add text to the file, like your'e used to, but to navigate, you must use the arrow keys. 
 
 When you start vim, you are in normal mode. To enter insert mode, press `i`. 
 
