@@ -53,16 +53,21 @@ On the other hand, if you run `whoami`, it will return your username, not root.
 
 
 ## `apt`
-`apt` is a wrapper for `apt-get`. For most of your usage of debian based linux distributions (like ubuntu), you will want to use apt. 
-### `apt update`
+Unlike installing software on Windows and Mac os, Linux uses a package manager. This is somewhat similar to an app store, except that everything is free, and it's actually useful. The default package manager is `apt` on debian based systems, like ubuntu. 
 
+`apt` is a wrapper for `apt-get`. For most of your usage of debian based linux distributions (like ubuntu), you will want to use apt. Most features of `apt` must be run as `sudo`. This means you must run `sudo apt update` instead of `apt update` to avoid getting a permission denied error. 
+
+### `apt update`
+This checks for any available updates for your system. It does not install them. This updates the list of available software for your operating system.
 
 ### `apt upgrade`
-
+This will update any packages that need an update. You may need to restart to for some updates to apply fully, but for the most part, you don't. 
 
 ### `apt install`
+This allows you to get new packages. If you know the name of a package you need to install, you can use `apt install <name>` to install it on your computer. For example, if you want to install valgrind,  you can type `apt install valgrind`. Remember that all of these commands must be run with sudo. 
 
 ### `apt remove`
+This does exactly what you think it does. If you have installed a package, you can remove it using `apt remove`
 
 
 ## Combining Commands
