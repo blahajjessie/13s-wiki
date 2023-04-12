@@ -75,9 +75,12 @@ This does exactly what you think it does. If you have installed a package, you c
 While all of these commands aren't very powerful on their own, they become a lot more powerful when you can chain them together. 
 
 ### The pipe
-the pipe (`|`) operator takes the output of one command and sends it to the next one. Tru running `echo hello | 
+the pipe (`|`) operator takes the output of one command and sends it to the next one. Tru running `echo hello | xxd`. You will get how to write "hello" in hex. 
+
+### Running a commmand inside another
+To run a command inside another, you can use the `$` and parenthesis. For example, you can run `xxd 
 
 ### Redirects
 Most commands in bash have some input and some output. 
-
+You can 
 ### 

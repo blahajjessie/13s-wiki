@@ -44,6 +44,9 @@ Read the full error message again
 
 I am not posting this to be rude. I am posting this because it is a skill that some of you need to learn. If you ask helpful or insightful questions, I would be glad to answer them. If you try to use course staff to do your work for you, we will get annoyed. 
 
+{: .tip}
+When you include an image when you ask for help, don't just take a picture with your phone, [take a screenshot](https://take-a-screenshot.org)
+
 ## Installing Your VM
 
 {: .warning}

@@ -61,6 +61,8 @@ If you know what you're doing, you can install them now. If you don't, wait unti
 
 ## Getting git setup
 
+Git is a tool for Version control. This lets you keep past versions of your code/projects without taking up space. It requires at least a client and a server. For the purposes of this class, the git server we will be using is [git.ucsc.edu](https://git.ucsc.edu)
+
 First, ssh into your VM. Then, generate rsa keys, and upload them to gitlab.
 
 You can now clone your git repo!
