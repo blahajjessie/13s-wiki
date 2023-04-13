@@ -77,7 +77,7 @@ Note that the <code> -P </code> flag is capitalized, unlike in ssh where it's lo
 </details>
 
 ## Creating an SSH profile
-To make it more convenient to connect to your vm, we can add your virtual machine to your SSH profiles. The ssh command stores profiles in `~/.ssh/config` (this is a plain text file with no extension). Creating this file is kinda hard in windows, but you can do so by typing `notepad ~/.ssh/config` Windows will ask you if you want to make a new file, which you do. On macOS, we can use vim to make the same file `vim ~/.ssh/config`. 
+To make it more convenient to connect to your vm, we can add your virtual machine to your SSH profiles. The ssh command stores profiles in `~/.ssh/config` (this is a plain text file with no extension). Creating this file is kinda hard in windows, but you can do so by typing `notepad .ssh/config` Windows will ask you if you want to make a new file, which you do. On macOS, we can use vim to make the same file `vim ~/.ssh/config`. 
 
 Then, we can add the following to the file
 
