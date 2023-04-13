@@ -14,6 +14,9 @@ has_toc: false
 1. TOC
 {:toc}
 
+{: .note}
+For everything that is not covered on this page, you can accept the default and continue!
+
 ## Initial Setup
 - Configure your language and keyboard as appropriate
 ![install](imgs/ubuntu_steps/install.png)
