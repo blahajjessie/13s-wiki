@@ -57,7 +57,7 @@ This list may be updated to include other versions later.
 {: .warning}
 Be sure to **NEVER** forcefully power off your vm. 
 
-If you're using virtualbox, this means only using the "Send the shutdown signal" option, the "Save state" option (this is not the same thing as shutting down, and requires disk space), or using the terminal to shutdown. To shutdown your vm from the terminal (The only option using UTM), you can use `sudo shutdown -h now` in terminal. 
+If you're using virtualbox, this means only using the "Send the shutdown signal" option, the "Save state" option (this is not the same thing as shutting down, and requires disk space), or using the terminal to shutdown. In UTM, you can hold the power button in the toolbar and select "Request power down". To shutdown your vm from the terminal, you can use `sudo shutdown -h now`. 
 
 ## Install required software and setup
 
