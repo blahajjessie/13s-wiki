@@ -37,7 +37,7 @@ We can also see the usage of the `ssh` command by just typing `ssh` into your te
 To connect to our virtual machine, we need to run `ssh <user>@localhost -p <port>`
 
 ## Logging in
-You should now see a prompt asking you for your password. Type that in, and press enter (you will not see anything as you type). Your terminal may change a bit, and you are now logged into your Virtual machine via SSH. 
+You should now see a prompt asking you for your password. Type in the password you set when you created your account on the VM, and press enter (you will not see anything as you type). Your terminal may change a bit, and you are now logged into your Virtual machine via SSH. 
 
 You have access to any files and programs on your virtual machine. To log out at any time, you can press `^d` (this is the same on a mac, not command), or type `exit` or `logout`.
 
@@ -56,7 +56,7 @@ We can use the <code> ssh-copy-id </code> command to do this!
 
 <br><br>
 
-<code>ssh-copy-id -p 2223 &lt;username&gt;@localhost </code>
+<code>ssh-copy-id -p 2223 &lt;VM username&gt;@localhost </code>
 <br>
 </details>
 
@@ -66,7 +66,7 @@ We can use the <code> ssh-copy-id </code> command to do this!
 <ul>
 <li>First, we must use <code> scp </code> to copy your id_rsa.pub file to linux. <br> 
 You can do that by using the scp command as follows (in your windows home folder): <br>
-<code>scp -P 2222 .ssh/id_rsa.pub &lt;username&gt;@localhost </code><br>
+<code>scp -P 2222 .ssh/id_rsa.pub &lt;VM username&gt;@localhost </code><br>
 Note that the <code> -P </code> flag is capitalized, unlike in ssh where it's lowercase. 
 </li>
 <li> Then, ssh into your linux vm as shown in "Logging in"</li>
