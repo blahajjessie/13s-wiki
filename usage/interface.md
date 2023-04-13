@@ -45,7 +45,7 @@ You have access to any files and programs on your virtual machine. To log out at
 {: .tip}
 Be sure that you're doing this on your host machine! to be sure, press `^d`
 
-First, you need to generate ssh keys. Both Windows (any modern version) and Mac OS have `ssh-keygen` installed. Therefore, we can just run it to generate an ssh keypair on our host machine. Then, we need to copy the public key (and only the public key) to our guest OS. 
+First, you need to generate ssh keys. Both Windows (any modern version) and Mac OS have `ssh-keygen` installed. Therefore, we can just run it to generate an ssh keypair on our host machine. When it asks where to save the file, just press enter without typing anything to accept the default location. Then, we need to copy the public key (and only the public key) to our guest OS.
 
 
 
