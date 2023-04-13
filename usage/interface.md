@@ -50,13 +50,13 @@ First, you need to generate ssh keys. Both Windows (any modern version) and Mac 
 
 
 <details>
-<summary>Mac Os and Linux</summary>
+<summary>Mac OS and Linux</summary>
 
-We can use the <code> ssh-copy-id </code> command to do this!
+We can use the <code>ssh-copy-id</code> command to do this!
 
 <br><br>
 
-<code>ssh-copy-id -p 2223 &lt;VM username&gt;@localhost </code>
+<code>ssh-copy-id -p 2222 &lt;VM username&gt;@localhost </code>
 <br>
 </details>
 
@@ -64,10 +64,10 @@ We can use the <code> ssh-copy-id </code> command to do this!
 <details>
 <summary>Windows</summary>
 <ul>
-<li>First, we must use <code> scp </code> to copy your id_rsa.pub file to linux. <br> 
+<li>First, we must use <code>scp</code> to copy your id_rsa.pub file to linux. <br> 
 You can do that by using the scp command as follows (in your windows home folder): <br>
 <code>scp -P 2222 .ssh/id_rsa.pub &lt;VM username&gt;@localhost:~ </code><br>
-Note that the <code> -P </code> flag is capitalized, unlike in ssh where it's lowercase. 
+Note that the <code>-P</code> flag is capitalized, unlike in ssh where it's lowercase. 
 </li>
 <li> Then, ssh into your linux vm as shown in "Logging in"</li>
 <li> Finally type <code> cat id_rsa.pub >> .ssh/authorized_keys</code> to copy your rsa public key to the authorized keys file on your VM.</li>
