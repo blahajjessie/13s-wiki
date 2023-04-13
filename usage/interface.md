@@ -66,7 +66,7 @@ We can use the <code> ssh-copy-id </code> command to do this!
 <ul>
 <li>First, we must use <code> scp </code> to copy your id_rsa.pub file to linux. <br> 
 You can do that by using the scp command as follows (in your windows home folder): <br>
-<code>scp -P 2222 .ssh/id_rsa.pub &lt;VM username&gt;@localhost </code><br>
+<code>scp -P 2222 .ssh/id_rsa.pub &lt;VM username&gt;@localhost:~ </code><br>
 Note that the <code> -P </code> flag is capitalized, unlike in ssh where it's lowercase. 
 </li>
 <li> Then, ssh into your linux vm as shown in "Logging in"</li>
