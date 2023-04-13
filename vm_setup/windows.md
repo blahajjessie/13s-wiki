@@ -89,12 +89,12 @@ To Enable Virtualization
 - Host OS: the OS that is running on your computer (Mac or Windows)
 - Guest OS: The os that we are running in our virtual machine. 
 
-Port forwarding allows us to access services running on our guest OS (Virtual machine) on our Host OS (computer). The service we will be using the most is `ssh`, which will be critical in this course, and probably later in life also. SSH runs on port 22 by default, but can be configured to use anything. Because we may want to run SSH on both our host and guest OSes, we can not use port 22 for our guest OS ssh port. Therefore, we will use 2222, a (usually) open port that is often used as a backup for SSH. 
+Port forwarding allows us to access services running on our guest OS (Virtual machine) on our Host OS (computer). The service we will be using the most is `ssh`, which will be critical in this course, and probably later in life also. SSH runs on port 22 by default, but can be configured to use anything. Because we may want to run SSH on both our host and guest OSes, we can not use port 22 for our host OS ssh port. Therefore, we will use 2222, a (usually) open port that is often used as a backup for SSH. 
 
 ### Instructions 
-- Open settings 
+- Open VirtualBox, select your virtual machine on the left side, and click the Settings icon to open configuration options for that virtual machine.
 - Go to the network settings
-- For "Network 1", Press "Advanced"
+- For "Adapter 1", Press "Advanced"
 - Press "Port Forwarding"
 - Press the green "+" icon in the top right 
 - Change Host port to "2222" and Guest port to "22"
