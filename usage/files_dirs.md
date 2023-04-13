@@ -22,6 +22,9 @@ Try running `pwd` now, to see what directory you are in.
 
 ## `cd`
 This is short for Change Directory. running cd with a file path (or a relative file path) allows a user to change the folder that they are currently in. 
+The usage of `cd` is `cd <dirpath>`where `<dirpath>` is the directory that you want to be the new current current working directory. You can also leave out the `<dirpath>` to cd to your home folder. 
+
+Try it out! 
 
 Are you in your home directory? run `cd ..` until you hit the root directory!
 
@@ -36,10 +39,10 @@ How do we know what's in the folder wee're in? The `ls` command lists the files 
 Try running `ls` to what's in your current directory!
 
 
-
 ### Advanced usage of `ls`
 
 We can also use `ls` to find the contents of directories that are not the current directory. run `ls /` to see what else is in the root directory!
+The usage of `ls` is `ls <path?>` where `<path?>` is an optional path to a directory. If no directory is specified, it defaults to the current working directory. 
 
 It is also possible to make hidden files and folders. Try running `ls -a ~` to see what else is in your home directory! By default, `ls` ignores files and folders that begin with `.`. You can show them by using the `-a` flag. 
 
@@ -49,6 +52,7 @@ More advanced usage of `ls` can be found by running `man ls`
 `cat` shows the content of a file. For longer files, it might be helpful to use `less`
 
 ## `mkdir`
+The format of this command is `mkdir <dirpath>` where `dirpath` is the path to the new directory to be created
 MaKe DIRectory
 
 ## `touch`

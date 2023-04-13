@@ -45,7 +45,8 @@ has_toc: false
 - If you get a prompt to "Enable Ubuntu pro", select "No"
 
 ## Eject the Installation disk.
-
+When you reach the point where installation finishes, you can press "restart now". There is a very good chance that you will see an error that says "[Failed] unmounting /cdrom" or similar. 
+This is ok! 
 Instructions will vary depending on what Virtual Machine software you are using
 <details>
 <summary>UTM</summary>
@@ -60,9 +61,10 @@ Instructions will vary depending on what Virtual Machine software you are using
 
 <details>
 <summary>Virtualbox</summary>
-
+<ul>
 <li> Navigate to Devices, in the top bar, optical drives</li> 
 <li> Press "Remove Disk From Virtual Drive"</li>
+</ul>
 <img src="imgs/ubuntu_steps/eject.png"> 
 
 </details>
