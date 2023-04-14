@@ -5,7 +5,7 @@ parent: Using Ubuntu
 nav_order: 2
 ---
 
-# Installing and Configuring Virtualbox 
+# Interfacing with your VM
 {: .no_toc }
 
 ## Table of contents
