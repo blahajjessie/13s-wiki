@@ -64,11 +64,14 @@ We can use the <code>ssh-copy-id</code> command to do this!
 <details>
 <summary>Windows</summary>
 <ul>
+<li>Make sure you're in your windows home folder. This is <code>C:\Users\<Username></code> <br>
+If you are somewhere else, you can enter that folder by typing <code>cd C:\Users\<username></code>
 <li>First, we must use <code>scp</code> to copy your id_rsa.pub file to linux. <br> 
 You can do that by using the scp command as follows (in your windows home folder): <br>
-<code>scp -P 2222 .ssh/id_rsa.pub &lt;VM username&gt;@localhost:~ </code><br>
+<code>scp -P 2222 .ssh/id_rsa.pub &lt;VM_username&gt;@localhost:~ </code><br>
 Note that the <code>-P</code> flag is capitalized, unlike in ssh where it's lowercase. 
 </li>
+
 <li> Then, ssh into your linux vm as shown in "Logging in"</li>
 <li> Finally type <code> cat id_rsa.pub >> .ssh/authorized_keys</code> to copy your rsa public key to the authorized keys file on your VM.</li>
 <li> You can now delete the file  <code>~/id_rsa.pub</code> </li>
@@ -77,7 +80,7 @@ Note that the <code>-P</code> flag is capitalized, unlike in ssh where it's lowe
 </details>
 
 ## Creating an SSH profile
-To make it more convenient to connect to your vm, we can add your virtual machine to your SSH profiles. The ssh command stores profiles in `~/.ssh/config` (this is a plain text file with no extension). Creating this file is kinda hard in windows, but you can do so by typing `notepad .ssh/config` Windows will ask you if you want to make a new file, which you do. On macOS, we can use vim to make the same file `vim ~/.ssh/config`. 
+To make it more convenient to connect to your vm, we can add your virtual machine to your SSH profiles. The ssh command stores profiles in `~/.ssh/config` (this is a plain text file with no extension). Creating this file is kinda hard in windows, but you can do so by typing `notepad .ssh/config` (again, in your home folder) Windows will ask you if you want to make a new file, which you do. On macOS, we can use vim to make the same file `vim ~/.ssh/config`. 
 
 Then, we can add the following to the file
 
@@ -103,7 +106,7 @@ Avoid using scp on files with spaces in the filename!
 Although windows users have already used SCP once now, here is a guide to scp!
 The SCP command's usage is `scp <source> <destination>`
 
-Because we have our SSH profile setup, we can use the name of the profile instead of `<username>@<host_ip> -P <port>` (Note that scp uses `-P` instead of `-p` like ssh)
+Because we have our SSH profile setup, we can use the name of the profile instead of `<username>@<host_ip>:<filename> -P <port>` (Note that scp uses `-P` instead of `-p` like ssh)
 
 If we want to transfer from our host to our guest, we can use the path to our file as our source, and our destination will be `<ssh_profile_name>:<path>`
 
