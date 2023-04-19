@@ -103,15 +103,17 @@ Avoid using scp on files with spaces in the filename!
 Although windows users have already used SCP once now, here is a guide to scp!
 The SCP command's usage is `scp <source> <destination>`
 
-If we want to transfer from our host to our guest, we can use the path to our file as our source, and our destination will be `vm:<path>`
+Because we have our SSH profile setup, we can use the name of the profile instead of `<username>@<host_ip> -P <port>` (Note that scp uses `-P` instead of `-p` like ssh)
+
+If we want to transfer from our host to our guest, we can use the path to our file as our source, and our destination will be `<ssh_profile_name>:<path>`
 
 If we want to transfer from the guest to the host you can reverse the source (now your vm) and the destination (now your host OS)
 
 For example, to copy a file from `~/Downloads/asgn.pdf` to your vm, the command would be
 
- `scp ~/Downloads/asgn.pdf vm:~`
+ `scp ~/Downloads/asgn.pdf <ssh_profile_name>:~`
 
  and to move `~/readme.md` From your Vm to your Host (to `~/Documents/readme.md`)
 
- `scp vm:~readme.md ~/Documents/readme.md`
+ `scp <ssh_profile_name>:~readme.md ~/Documents/readme.md`
 

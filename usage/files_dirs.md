@@ -68,7 +68,8 @@ The `rm` command is dangerous! Make sure you know what you're removing. There is
 given a file (or folder) and a destination, it copies the file to the destination
 
 ## `mv`
-given a file (or folder) and a destination, it moves the file to the destination
+given a file (or folder) and a destination, it moves the file to the destination.
+`mv` can also be used to rename a file! If we moe a file to the same location, but with a different name, it is the same as renaming it. We can do this using `mv <oldname> <newname>`
 
 ## `vim`
 Vim is a text editor that runs in the terminal. To open a file in vim type `vim <filename>`. You can also type a filename that doesn't exist to create a new file. Vim does not use the mouse (without extra configuration), and so everything you do is only using keyboard. You can find many vim cheatsheets on line, but the basics are as follows:
