@@ -64,8 +64,8 @@ We can use the <code>ssh-copy-id</code> command to do this!
 <details>
 <summary>Windows</summary>
 <ul>
-<li>Make sure you're in your windows home folder. This is <code>C:\Users\<Username></code> <br>
-If you are somewhere else, you can enter that folder by typing <code>cd C:\Users\<username></code>
+<li>Make sure you're in your windows home folder. This is <code>C:\Users\Username</code> <br>
+If you are somewhere else, you can enter that folder by typing <code>cd C:\Users\username</code>
 </li>
 
 
