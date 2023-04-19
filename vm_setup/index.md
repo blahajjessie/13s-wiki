@@ -57,7 +57,7 @@ This list may be updated to include other versions later.
 {: .warning}
 Be sure to **NEVER** forcefully power off your vm. 
 
-If you're using virtualbox, this means only using the "Send the shutdown signal" option, the "Save state" option (this is not the same thing as shutting down, and requires disk space), or using the terminal to shutdown. To shutdown your vm from the terminal (The only option using UTM), you can use `sudo shutdown -h now` in terminal. 
+If you're using virtualbox, this means only using the "Send the shutdown signal" option, the "Save state" option (this is not the same thing as shutting down, and requires disk space), or using the terminal to shutdown. In UTM, you can hold the power button in the toolbar and select "Request power down". To shutdown your vm from the terminal, you can use `sudo shutdown -h now`. 
 
 ## Install required software and setup
 
@@ -65,7 +65,7 @@ We now have a virtual machine, but while we *can* use it right now, there are ma
 
 ### Required tools
 
-This is *not* the definitive list of everything we need for this class. It is *only* what you need to get started with the first few assignments. As the class progresses, you will be given more software you will need to install. Thus, it is best that you familiarize yourself with [unix commands](13s-wiki/usage/unix_commands). Guides to how to instal these are [here](/13s-wiki/usage)
+This is *not* the definitive list of everything we need for this class. It is *only* what you need to get started with the first few assignments. As the class progresses, you will be given more software you will need to install. Thus, it is best that you familiarize yourself with [unix commands](/usage/unix_commands). Guides to how to install these are [here](/usage)
 
 - ssh
 - git
@@ -80,6 +80,6 @@ This is *not* the definitive list of everything we need for this class. It is *o
 
 ## See Also:
 
-- [unix commands](/13s-wiki/usage/unix_commands)
-- [interfacing with your vm](/13s-wiki/usage/interface)
+- [unix commands](/usage/unix_commands)
+- [interfacing with your vm](/usage/interface)
 

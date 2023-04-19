@@ -5,7 +5,7 @@ parent: Using Ubuntu
 nav_order: 2
 ---
 
-# Installing and Configuring Virtualbox 
+# Interfacing with your VM
 {: .no_toc }
 
 ## Table of contents
@@ -18,7 +18,7 @@ nav_order: 2
 
 First, to make sure that all of our configuration is correct, let's try connecting to our virtual machine from our host terminal. Begin by starting your virtual machine. If you have the option (virtualbox), use a headless start. This means that your virtual machine is running in the background, but is producing no display output of its own. We need a program to connect to it and use it. 
 
-Now, we can use `ssh` (Secure SHell) to connect to our VM. SSH is a program that enables remote access to a computer. Hopefully, your guest OS is already configured for ssh connections and port forwarding is set up. If not, go back to the [installation steps](/13s-wiki/vm_setup/) now. 
+Now, we can use `ssh` (Secure SHell) to connect to our VM. SSH is a program that enables remote access to a computer. Hopefully, your guest OS is already configured for ssh connections and port forwarding is set up. If not, go back to the [installation steps](/vm_setup/) now. 
 
 First, on your host OS (not the VM), open a terminal emulator. On Mac, the `terminal` app will be fine. 
 - On Windows 10, windows terminal is recommended (Not to be confused with windows command prompt or Windows Powershell, *obviously*). You can open it by searching for `wt` 
@@ -45,18 +45,18 @@ You have access to any files and programs on your virtual machine. To log out at
 {: .tip}
 Be sure that you're doing this on your host machine! to be sure, press `^d`
 
-First, you need to generate ssh keys. Both Windows (any modern version) and Mac OS have `ssh-keygen` installed. Therefore, we can just run it to generate an ssh keypair on our host machine. Then, we need to copy the public key (and only the public key) to our guest OS. 
+First, you need to generate ssh keys. Both Windows (any modern version) and Mac OS have `ssh-keygen` installed. Therefore, we can just run it to generate an ssh keypair on our host machine. When it asks where to save the file, just press enter without typing anything to accept the default location. Then, we need to copy the public key (and only the public key) to our guest OS.
 
 
 
 <details>
-<summary>Mac Os and Linux</summary>
+<summary>Mac OS and Linux</summary>
 
-We can use the <code> ssh-copy-id </code> command to do this!
+We can use the <code>ssh-copy-id</code> command to do this!
 
 <br><br>
 
-<code>ssh-copy-id -p 2223 &lt;VM username&gt;@localhost </code>
+<code>ssh-copy-id -p 2222 &lt;VM username&gt;@localhost </code>
 <br>
 </details>
 
@@ -64,10 +64,10 @@ We can use the <code> ssh-copy-id </code> command to do this!
 <details>
 <summary>Windows</summary>
 <ul>
-<li>First, we must use <code> scp </code> to copy your id_rsa.pub file to linux. <br> 
+<li>First, we must use <code>scp</code> to copy your id_rsa.pub file to linux. <br> 
 You can do that by using the scp command as follows (in your windows home folder): <br>
 <code>scp -P 2222 .ssh/id_rsa.pub &lt;VM username&gt;@localhost:~ </code><br>
-Note that the <code> -P </code> flag is capitalized, unlike in ssh where it's lowercase. 
+Note that the <code>-P</code> flag is capitalized, unlike in ssh where it's lowercase. 
 </li>
 <li> Then, ssh into your linux vm as shown in "Logging in"</li>
 <li> Finally type <code> cat id_rsa.pub >> .ssh/authorized_keys</code> to copy your rsa public key to the authorized keys file on your VM.</li>
@@ -77,7 +77,7 @@ Note that the <code> -P </code> flag is capitalized, unlike in ssh where it's lo
 </details>
 
 ## Creating an SSH profile
-To make it more convenient to connect to your vm, we can add your virtual machine to your SSH profiles. The ssh command stores profiles in `~/.ssh/config` (this is a plain text file with no extension). Creating this file is kinda hard in windows, but you can do so by typing `notepad ~/.ssh/config` Windows will ask you if you want to make a new file, which you do. On macOS, we can use vim to make the same file `vim ~/.ssh/config`. 
+To make it more convenient to connect to your vm, we can add your virtual machine to your SSH profiles. The ssh command stores profiles in `~/.ssh/config` (this is a plain text file with no extension). Creating this file is kinda hard in windows, but you can do so by typing `notepad .ssh/config` Windows will ask you if you want to make a new file, which you do. On macOS, we can use vim to make the same file `vim ~/.ssh/config`. 
 
 Then, we can add the following to the file
 
