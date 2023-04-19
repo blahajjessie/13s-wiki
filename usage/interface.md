@@ -66,6 +66,9 @@ We can use the <code>ssh-copy-id</code> command to do this!
 <ul>
 <li>Make sure you're in your windows home folder. This is <code>C:\Users\<Username></code> <br>
 If you are somewhere else, you can enter that folder by typing <code>cd C:\Users\<username></code>
+</li>
+
+
 <li>First, we must use <code>scp</code> to copy your id_rsa.pub file to linux. <br> 
 You can do that by using the scp command as follows (in your windows home folder): <br>
 <code>scp -P 2222 .ssh/id_rsa.pub &lt;VM_username&gt;@localhost:~ </code><br>
