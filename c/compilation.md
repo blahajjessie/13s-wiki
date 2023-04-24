@@ -5,6 +5,8 @@ has_children: false
 has_toc: true
 ---
 
+# Compilation, make, object files, etc.
+
 This page describes how to compile C programs that are more complex than a single source file. We'll cover how to split code across multiple files, how to compile those files, how to automate the build process using GNU Make, and how to make use of system libraries.
 
 You can follow along with this guide on your own computer. All you'll need is familiarity with the command line and a C programming environment with recent versions of Clang and Make. I would recommend using Linux (either running on your computer, in a virtual machine, or in WSL2). These commands may also work on macOS if you install Clang and Make, but they will _not_ work on Windows if you don't have a Linux environment.
@@ -61,13 +63,14 @@ int main(void) {
 You may already know the command to compile this using Clang:
 
 ```
-$ clang -Wall -Werror -Wextra -Wpedantic -o hypot hypot.c
+$ clang -Wall -Werror -Wextra -Wstrict-prototypes -pedantic -o hypot hypot.c
 ```
 
 But what does every part of this mean? Clang, like most command line programs, lets you specify _input files_ (in this case, C files to compile) as well as _flags_ that modify its behavior. Each argument that isn't part of a flag is interpreted as an input file. Let's break down all the arguments:
 
-- `-Wall`, `-Werror`, `-Wextra`, `-Wpedantic`: each of these enables a certain class of warnings. Together, they make Clang very strict. With these flags, compilation will often fail when issues are encountered that would normally only be treated as warnings.
-- `-o`,  `hypot`: the `o` stands for "output," and means that the next argument should be used as the output filename. This makes Clang save the executable file as `hypot`, and prevents `hypot` from being interpreted as an input filename.
+- `-Wall`, `-Wextra`, `-Wstrict-prototypes`, `-pedantic`: each of these enables a certain class of warnings. Together, they make Clang very strict.
+- `-Werror`: turns all warnings into errors, so you can't ignore potential issues with your code
+- `-o hypot`: the `o` stands for "output," and means that the next argument should be used as the output filename. This makes Clang save the executable file as `hypot`, and prevents `hypot` from being interpreted as an input filename.
 - `hypot.c`: this is the only input file.
 
 The compilation should succeed without errors. Now you can run the program:
@@ -106,7 +109,7 @@ Including a file with `#include` inserts its contents at the position of the `#i
 double sqrt(double x);
 ```
 
-(Since the preprocessor processes includes recursively, as far as you are concerned, that declaration may as well actually be in `/usr/include/math.h`. The fact that it isn't is transparent to you.)
+(Since the preprocessor processes includes recursively, as far as you are concerned, that declaration may as well actually be in `/usr/include/math.h`. The fact that it isn't is transparent to you. You will still get it declared when you include `<math.h>`.)
 
 Let's change our program to use the system's `sqrt` function (to make this tutorial easier to follow, when you modify a file, I'll specify what the complete contents should now be):
 
@@ -127,12 +130,12 @@ double my_hypot(double a, double b) {
 int main(void) {
     double a, b;
     printf("side a: ");
-    if (!scanf("%lf", &a)) {
+    if (scanf("%lf", &a) != 1) {
         fprintf(stderr, "invalid input\n");
         return 1;
     }
     printf("side b: ");
-    if (!scanf("%lf", &b)) {
+    if (scanf("%lf", &b) != 1) {
         fprintf(stderr, "invalid input\n");
         return 1;
     }
@@ -147,20 +150,20 @@ int main(void) {
 Let's recompile:
 
 ```
-$ clang -Wall -Wextra -Werror -Wpedantic hypot.c -o hypot
+$ clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic hypot.c -o hypot
 /usr/bin/ld: /tmp/hypot-1e886c.o: in function `my_hypot':
 hypot.c:(.text+0x2b): undefined reference to `sqrt'
 clang-12: error: linker command failed with exit code 1 (use -v to see invocation)
 ```
 
-Uh oh! The important part of this error is <code>undefined reference to \`sqrt'</code>. Remember that `math.h` contains only the declaration of `sqrt`. That essentially tells the compiler that there _will be_ a function available, called `sqrt`, returning a `double`, and taking one `double` as its argument. However, to finish linking the binary, the linker needs to know what the address of that function will be at runtime, so that it can insert the proper function call. (We'll get into the difference between compiling and linking later. For now, know that `clang -Wall -Wextra -Werror -Wpedantic hypot.c -o hypot` runs both steps, compiling and then linking your C file).
+Uh oh! The important part of this error is <code>undefined reference to \`sqrt'</code>. Remember that `math.h` contains only the _declaration_ of `sqrt`. That essentially tells the compiler that there _will be_ a function available, called `sqrt`, returning a `double`, and taking one `double` as its argument. However, to finish linking the binary, the linker needs to know what the address of that function will be at runtime, so that it can insert the proper function call. (We'll get into the difference between compiling and linking later. For now, know that `clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic hypot.c -o hypot` runs both steps, compiling and then linking your C file).
 
 We can fix this error by _linking against_ the math library. This is a _shared library_, meaning that its code can be used by any program on your computer, and the code is loaded dynamically when the program runs instead of being part of the executable. (All modern operating systems have shared libraries, but they use different file extensions. On Linux they are `.so` files, macOS uses `.dylib`, and Windows uses `.dll`.) Each executable contains a list of shared libraries that should be loaded, and linking against a shared library just adds its name to this list.
 
 Library names are prefixed with `lib`. The math library is `libm`. To link against a library, you use `-l` followed by the name of the library without the prefix, so the math library is `-lm`. Let's recompile with this flag:
 
 ```
-$ clang -Wall -Wextra -Werror -Wpedantic hypot.c -o hypot -lm
+$ clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic hypot.c -o hypot -lm
 ```
 
 This time, the program handles the entire range of square roots:
@@ -249,7 +252,7 @@ We `#include` headers, not C files, because the C file is going to be compiled s
 You may already be thinking of some other changes we'll have to make to `hypot.c`. Let's add `mathlib.c` as an input file to our last compilation command, and try compiling this:
 
 ```
-$ clang -Wall -Wextra -Werror -Wpedantic hypot.c mathlib.c -o hypot -lm
+$ clang -Wall -Wextra -Werror -Wstrict-prototypes pedantic hypot.c mathlib.c -o hypot -lm
 /usr/bin/ld: /tmp/mathlib-5b7ded.o: in function `my_hypot':
 mathlib.c:(.text+0x0): multiple definition of `my_hypot'; /tmp/hypot-96432d.o:hypot.c:(.text+0x0): first defined here
 clang-12: error: linker command failed with exit code 1 (use -v to see invocation)
@@ -315,7 +318,7 @@ First, let's run the commands to compile our C files to object files and link th
 The `-c` flag tells Clang to output an object file instead of an executable. By default, it will just replace `.c` with `.o`, but you can also specify the location of the object file manually with `-o`. Delete the `hypot` binary if you still have it from a previous section, and then let's compile `hypot.c` and see what it creates:
 
 ```
-$ clang -Wall -Wextra -Werror -Wpedantic -c hypot.c
+$ clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic -c hypot.c
 $ ls
 hypot.c  hypot.o  mathlib.c  mathlib.h
 ```
@@ -332,7 +335,7 @@ clang-12: error: linker command failed with exit code 1 (use -v to see invocatio
 It's complaining that it can't find the `my_hypot` function, since that is in a different file. Note that we got this error during linking and not compilation, since object files are allowed to reference functions from other files. Let's compile `mathlib.c` into an object file and try again:
 
 ```
-$ clang -Wall -Wextra -Werror -Wpedantic -c mathlib.c
+$ clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic -c mathlib.c
 $ ls
 hypot.c  hypot.o  mathlib.c  mathlib.h  mathlib.o
 $ clang hypot.o mathlib.o -o hypot
@@ -367,32 +370,32 @@ The true power of Make lies in its dependency system. You can specify the files 
 We're going to build up our Makefile a little bit at a time. Create a file called `Makefile` with the following contents:
 
 ```makefile
-CC = clang
-CFLAGS = -Wall -Wextra -Werror -Wpedantic
-LDFLAGS = -lm
-EXEC = hypot
-OBJS = hypot.o mathlib.o
+CC     = clang
+CFLAGS = -Wall -Wextra -Werror -Wstrict-prototypes -pedantic
+LFLAGS = -lm
+EXEC   = hypot
+OBJS   = hypot.o mathlib.o
 ```
 
-These are variables that we'll use later in the Makefile.
+These are variables that we'll use later in the Makefile (note that the variable names here are just convention; you can name them something else).
 
 - `CC` is the name of the C compiler that we use
 - `CFLAGS` are the flags that are passed to the compiler
-- `LDFLAGS` are the flags that are passed to the linker
+- `LFLAGS` are the flags that are passed to the linker
 - `EXEC` is the name of the executable file we are making
 - `OBJS` is the list of object files that we want to compile and link
 
 Let's add the next parts to our Makefile:
 
 ```makefile
-CC = clang
-CFLAGS = -Wall -Wextra -Werror -Wpedantic
-LDFLAGS = -lm
-EXEC = hypot
-OBJS = hypot.o mathlib.o
+CC     = clang
+CFLAGS = -Wall -Wextra -Werror -Wstrict-prototypes -pedantic
+LFLAGS = -lm
+EXEC   = hypot
+OBJS   = hypot.o mathlib.o
 
 $(EXEC): $(OBJS)
-	$(CC) $(LDFLAGS) -o $(EXEC) $(OBJS)
+	$(CC) $(LFLAGS) -o $(EXEC) $(OBJS)
 ```
 
 Make sure the last line is indented with tabs, not spaces. Make requires tabs.
@@ -409,14 +412,14 @@ This is one _target_. A target begins with the line `target: dependencies`, so i
 Let's keep going! Next we'll add targets to build our object files:
 
 ```makefile
-CC = clang
-CFLAGS = -Wall -Wextra -Werror -Wpedantic
-LDFLAGS = -lm
-EXEC = hypot
-OBJS = hypot.o mathlib.o
+CC     = clang
+CFLAGS = -Wall -Wextra -Werror -Wstrict-prototypes -pedantic
+LFLAGS = -lm
+EXEC   = hypot
+OBJS   = hypot.o mathlib.o
 
 $(EXEC): $(OBJS)
-	$(CC) $(LDFLAGS) -o $(EXEC) $(OBJS)
+	$(CC) $(LFLAGS) -o $(EXEC) $(OBJS)
 
 hypot.o: hypot.c
 	$(CC) $(CFLAGS) -c hypot.c
@@ -436,8 +439,8 @@ $ rm hypot *.o
 $ ls
 hypot.c  Makefile  mathlib.c  mathlib.h
 $ make
-clang -Wall -Wextra -Werror -Wpedantic -c hypot.c
-clang -Wall -Wextra -Werror -Wpedantic -c mathlib.c
+clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic -c hypot.c
+clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic -c mathlib.c
 clang -lm -o hypot hypot.o mathlib.o
 $ ls
 hypot  hypot.c  hypot.o  Makefile  mathlib.c  mathlib.h  mathlib.o
@@ -467,16 +470,16 @@ In a more advanced project, you might have multiple executable files that should
 We can use something called a _phony target_ to remedy this. A phony target is a target that doesn't correspond to a single file. In this case, we create a target called `all` with all our executables (there is still only one, but there could be more) as dependencies, and put it first in the Makefile:
 
 ```makefile
-CC = clang
-CFLAGS = -Wall -Wextra -Werror -Wpedantic
-LDFLAGS = -lm
-EXEC = hypot
-OBJS = hypot.o mathlib.o
+CC     = clang
+CFLAGS = -Wall -Wextra -Werror -Wstrict-prototypes -pedantic
+LFLAGS = -lm
+EXEC   = hypot
+OBJS   = hypot.o mathlib.o
 
 all: $(EXEC)
 
 $(EXEC): $(OBJS)
-	$(CC) $(LDFLAGS) -o $(EXEC) $(OBJS)
+	$(CC) $(LFLAGS) -o $(EXEC) $(OBJS)
 
 hypot.o: hypot.c
 	$(CC) $(CFLAGS) -c hypot.c
@@ -492,16 +495,16 @@ We've listed `hypot` as the sole dependency of the `all` target. If there were a
 It's common to include a target called `clean` that deletes all executables and object files. We'll do this using `rm` with the `-f` flag ("force"). The flag means that if we ask it to delete a file that doesn't exist, it will silently ignore that argument instead of producing an error, so we can still run our `clean` target even if there isn't anything for it to delete.
 
 ```makefile
-CC = clang
-CFLAGS = -Wall -Wextra -Werror -Wpedantic
-LDFLAGS = -lm
-EXEC = hypot
-OBJS = hypot.o mathlib.o
+CC     = clang
+CFLAGS = -Wall -Wextra -Werror -Wstrict-prototypes -pedantic
+LFLAGS = -lm
+EXEC   = hypot
+OBJS   = hypot.o mathlib.o
 
 all: $(EXEC)
 
 $(EXEC): $(OBJS)
-	$(CC) $(LDFLAGS) -o $(EXEC) $(OBJS)
+	$(CC) $(LFLAGS) -o $(EXEC) $(OBJS)
 
 hypot.o: hypot.c
 	$(CC) $(CFLAGS) -c hypot.c
@@ -533,16 +536,16 @@ Right now, if we added another C file to our program, we'd have to add a new tar
 Fortunately, Make allows us to specify much more general rules. Specifically, we can tell it how to compile any object file from the corresponding C file:
 
 ```makefile
-CC = clang
-CFLAGS = -Wall -Wextra -Werror -Wpedantic
-LDFLAGS = -lm
-EXEC = hypot
-OBJS = hypot.o mathlib.o
+CC     = clang
+CFLAGS = -Wall -Wextra -Werror -Wstrict-prototypes -pedantic
+LFLAGS = -lm
+EXEC   = hypot
+OBJS   = hypot.o mathlib.o
 
 all: $(EXEC)
 
 $(EXEC): $(OBJS)
-	$(CC) $(LDFLAGS) -o $(EXEC) $(OBJS)
+	$(CC) $(LFLAGS) -o $(EXEC) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
@@ -561,8 +564,8 @@ rm -f hypot hypot.o mathlib.o
 $ ls
 hypot.c  Makefile  mathlib.c  mathlib.h
 $ make
-clang -Wall -Wextra -Werror -Wpedantic -c hypot.c
-clang -Wall -Wextra -Werror -Wpedantic -c mathlib.c
+clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic -c hypot.c
+clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic -c mathlib.c
 clang -lm -o hypot hypot.o mathlib.o
 $ ls
 hypot  hypot.c  hypot.o  Makefile  mathlib.c  mathlib.h  mathlib.o
@@ -603,8 +606,8 @@ scan-build --use-cc=clang make
 scan-build: Using '/usr/bin/clang-12' for static analysis
 make[1]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
 make[1]: Entering directory '/home/ben/code/c/ucsc-guide-hypot'
-/usr/bin/../lib/clang/ccc-analyzer -Wall -Wextra -Werror -Wpedantic -c hypot.c
-/usr/bin/../lib/clang/ccc-analyzer -Wall -Wextra -Werror -Wpedantic -c mathlib.c
+/usr/bin/../lib/clang/ccc-analyzer -Wall -Wextra -Werror -Wstrict-prototypes -pedantic -c hypot.c
+/usr/bin/../lib/clang/ccc-analyzer -Wall -Wextra -Werror -Wstrict-prototypes -pedantic -c mathlib.c
 /usr/bin/../lib/clang/ccc-analyzer -lm -o hypot hypot.o mathlib.o
 make[1]: Leaving directory '/home/ben/code/c/ucsc-guide-hypot'
 scan-build: Analysis run complete.
@@ -645,7 +648,7 @@ int main(void) {
 We can compile it manually, making sure to link against the math library and our own `mathlib.o` (run `make` again if you don't have the object file):
 
 ```
-$ clang -Wall -Werror -Wextra -Wpedantic -c hypot-test.c
+$ clang -Wall -Werror -Wextra -Wstrict-prototypes -pedantic -c hypot-test.c
 $ clang -lm -o hypot-test hypot-test.o mathlib.o
 $ ./hypot-test
 a = 1, b = 1: hypot = 1.414213562373095, my_hypot = 1.414213562373095, diff = 0.000000000000000
@@ -669,15 +672,16 @@ a = 4, b = 4: hypot = 5.656854249492381, my_hypot = 5.656854249492381, diff = 0.
 Next, let's modify our Makefile to automatically build `hypot-test`. First, we'll rename the existing `OBJS` to `HYPOT_OBJS`, since we'll eventually create a new list of object files that are needed for `hypot-test`. We'll also remove the `EXEC` variable and instead write `hypot` directly:
 
 ```makefile
-CC = clang
-CFLAGS = -Wall -Wextra -Werror -Wpedantic
-LDFLAGS = -lm
+CC         = clang
+CFLAGS     = -Wall -Wextra -Werror -Wstrict-prototypes -pedantic
+LFLAGS     = -lm
+EXEC       = hypot
 HYPOT_OBJS = hypot.o mathlib.o
 
 all: hypot
 
 hypot: $(HYPOT_OBJS)
-	$(CC) $(LDFLAGS) -o hypot $(HYPOT_OBJS)
+	$(CC) $(LFLAGS) -o hypot $(HYPOT_OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
@@ -695,19 +699,20 @@ scan-build: clean
 Now we can add `HYPOT_TEST_OBJS` with the object files that this program needs, as well as a `hypot-test` target. We'll also add `hypot-test` as a dependency of the `all` target, so that running `make` with no arguments builds both `hypot` and `hypot-test`. And finally, we'll add the executable and object files to our `clean` target:
 
 ```makefile
-CC = clang
-CFLAGS = -Wall -Wextra -Werror -Wpedantic
-LDFLAGS = -lm
-HYPOT_OBJS = hypot.o mathlib.o
+CC              = clang
+CFLAGS          = -Wall -Wextra -Werror -Wstrict-prototypes -pedantic
+LFLAGS          = -lm
+EXEC            = hypot
+HYPOT_OBJS      = hypot.o mathlib.o
 HYPOT_TEST_OBJS = hypot-test.o mathlib.o
 
 all: hypot hypot-test
 
 hypot: $(HYPOT_OBJS)
-	$(CC) $(LDFLAGS) -o hypot $(HYPOT_OBJS)
+	$(CC) $(LFLAGS) -o hypot $(HYPOT_OBJS)
 
 hypot-test: $(HYPOT_TEST_OBJS)
-	$(CC) $(LDFLAGS) -o hypot-test $(HYPOT_TEST_OBJS)
+	$(CC) $(LFLAGS) -o hypot-test $(HYPOT_TEST_OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
@@ -733,9 +738,9 @@ rm -f hypot hypot-test hypot.o mathlib.o hypot-test.o mathlib.o
 $ ls
 hypot.c  hypot-test.c  Makefile  mathlib.c  mathlib.h
 $ make
-clang -Wall -Wextra -Werror -Wpedantic -c hypot.c
-clang -Wall -Wextra -Werror -Wpedantic -c mathlib.c
-clang -Wall -Wextra -Werror -Wpedantic -c hypot-test.c
+clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic -c hypot.c
+clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic -c mathlib.c
+clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic -c hypot-test.c
 clang -lm -o hypot hypot.o mathlib.o
 clang -lm -o hypot-test hypot-test.o mathlib.o
 $ ls
