@@ -107,7 +107,10 @@ An explanation of the config file:
 Avoid using scp on files with spaces in the filename!
 
 Although windows users have already used SCP once now, here is a guide to scp!
-The SCP command's usage is `scp <source> <destination>`
+The SCP command's usage is `scp <source> <destination>`.
+
+{: .note}
+All these commands should be run on your host machine, not your VM (not even in a host terminal that is connected to your VM via ssh). This is because we've only set up SSH access _from your host to your VM_, not the other way around. It would be possible to set it up so you can SSH into your host from your VM, and then you could run scp commands on the VM, but it's not necessary to do that so we won't cover it here.
 
 Because we have our SSH profile setup, we can use the name of the profile instead of `<username>@<host_ip>:<filename> -P <port>` (Note that scp uses `-P` instead of `-p` like ssh)
 
