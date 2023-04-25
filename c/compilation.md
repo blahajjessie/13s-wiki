@@ -91,7 +91,7 @@ side b: 2
 c = 3.000000
 ```
 
-The side length should be &radic;8 &approx; 2.828. We're going to modify this program to:
+The side length should be &radic;8 &thickapprox; 2.828. We're going to modify this program to:
 
 - use the built-in math library's `sqrt` function
 - move the `my_hypot` function into another file
@@ -156,7 +156,7 @@ hypot.c:(.text+0x2b): undefined reference to `sqrt'
 clang-12: error: linker command failed with exit code 1 (use -v to see invocation)
 ```
 
-Uh oh! The important part of this error is <code>undefined reference to \`sqrt'</code>. Remember that `math.h` contains only the _declaration_ of `sqrt`. That essentially tells the compiler that there _will be_ a function available, called `sqrt`, returning a `double`, and taking one `double` as its argument. However, to finish linking the binary, the linker needs to know what the address of that function will be at runtime, so that it can insert the proper function call. (We'll get into the difference between compiling and linking later. For now, know that `clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic hypot.c -o hypot` runs both steps, compiling and then linking your C file).
+Uh oh! The important part of this error is <code>undefined reference to `sqrt'</code>. Remember that `math.h` contains only the _declaration_ of `sqrt`. That essentially tells the compiler that there _will be_ a function available, called `sqrt`, returning a `double`, and taking one `double` as its argument. However, to finish linking the binary, the linker needs to know what the address of that function will be at runtime, so that it can insert the proper function call. (We'll get into the difference between compiling and linking later. For now, know that `clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic hypot.c -o hypot` runs both steps, compiling and then linking your C file).
 
 We can fix this error by _linking against_ the math library. This is a _shared library_, meaning that its code can be used by any program on your computer, and the code is loaded dynamically when the program runs instead of being part of the executable. (All modern operating systems have shared libraries, but they use different file extensions. On Linux they are `.so` files, macOS uses `.dylib`, and Windows uses `.dll`.) Each executable contains a list of shared libraries that should be loaded, and linking against a shared library just adds its name to this list.
 
@@ -258,7 +258,7 @@ mathlib.c:(.text+0x0): multiple definition of `my_hypot'; /tmp/hypot-96432d.o:hy
 clang-12: error: linker command failed with exit code 1 (use -v to see invocation)
 ```
 
-Zeroing in on that error, the main issue is <code>multiple definition of \`my_hypot'</code>. It says that one definition is in `mathlib.c` and another is in `hypot.c`. Let's remove the one in `hypot.c` (we also remove `#include <math.h>` since this file no longer needs to call `sqrt`):
+Zeroing in on that error, the main issue is <code>multiple definition of `my_hypot'</code>. It says that one definition is in `mathlib.c` and another is in `hypot.c`. Let's remove the one in `hypot.c` (we also remove `#include <math.h>` since this file no longer needs to call `sqrt`):
 
 ```c
 #include <stdio.h>
