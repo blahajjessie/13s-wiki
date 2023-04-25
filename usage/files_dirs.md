@@ -6,8 +6,7 @@ nav_order: 4
 ---
 
 # Using the file system Via Command Line
-
-{: .no_toc}
+{: .no_toc }
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -16,15 +15,17 @@ nav_order: 4
 {:toc}
 
 ## `pwd`
-`pwd` is short for Print Working directory. This command shows what folder you are currently in. 
 
-Try running `pwd` now, to see what directory you are in. 
+`pwd` is short for Print Working directory. This command shows what folder you are currently in.
+
+Try running `pwd` now, to see what directory you are in.
 
 ## `cd`
-This is short for Change Directory. running cd with a file path (or a relative file path) allows a user to change the folder that they are currently in. 
-The usage of `cd` is `cd <dirpath>`where `<dirpath>` is the directory that you want to be the new current current working directory. You can also leave out the `<dirpath>` to cd to your home folder. 
 
-Try it out! 
+This is short for Change Directory. running cd with a file path (or a relative file path) allows a user to change the folder that they are currently in.
+The usage of `cd` is `cd <dirpath>`where `<dirpath>` is the directory that you want to be the new current current working directory. You can also leave out the `<dirpath>` to cd to your home folder.
+
+Try it out!
 
 Are you in your home directory? run `cd ..` until you hit the root directory!
 
@@ -34,59 +35,64 @@ Feel free to mess around more with `cd`!
 
 ## `ls`
 
-How do we know what's in the folder wee're in? The `ls` command lists the files and folders in a directory. 
+How do we know what's in the folder wee're in? The `ls` command lists the files and folders in a directory.
 
 Try running `ls` to what's in your current directory!
-
 
 ### Advanced usage of `ls`
 
 We can also use `ls` to find the contents of directories that are not the current directory. run `ls /` to see what else is in the root directory!
-The usage of `ls` is `ls <path?>` where `<path?>` is an optional path to a directory. If no directory is specified, it defaults to the current working directory. 
+The usage of `ls` is `ls <path?>` where `<path?>` is an optional path to a directory. If no directory is specified, it defaults to the current working directory.
 
-It is also possible to make hidden files and folders. Try running `ls -a ~` to see what else is in your home directory! By default, `ls` ignores files and folders that begin with `.`. You can show them by using the `-a` flag. 
+It is also possible to make hidden files and folders. Try running `ls -a ~` to see what else is in your home directory! By default, `ls` ignores files and folders that begin with `.`. You can show them by using the `-a` flag.
 
 More advanced usage of `ls` can be found by running `man ls`
 
 ## `cat`
+
 `cat` shows the content of a file. For longer files, it might be helpful to use `less`
 
 ## `mkdir`
+
 The format of this command is `mkdir <dirpath>` where `dirpath` is the path to the new directory to be created
 MaKe DIRectory
 
 ## `touch`
+
 Creates a file
 
 ## `rm`
+
 {: .warn}
 The `rm` command is dangerous! Make sure you know what you're removing. There is no undo!
 
 `rm -r` can be used to delete a folder and its contents
 
 ## `cp`
+
 given a file (or folder) and a destination, it copies the file to the destination
 
 ## `mv`
+
 given a file (or folder) and a destination, it moves the file to the destination.
 `mv` can also be used to rename a file! If we moe a file to the same location, but with a different name, it is the same as renaming it. We can do this using `mv <oldname> <newname>`
 
 ## `vim`
+
 Vim is a text editor that runs in the terminal. To open a file in vim type `vim <filename>`. You can also type a filename that doesn't exist to create a new file. Vim does not use the mouse (without extra configuration), and so everything you do is only using keyboard. You can find many vim cheatsheets on line, but the basics are as follows:
 
-There are many modes in vim. The most important are "normal mode" and "insert mode". Normal mode allows you to enter commands to edit the text. This includes things like find and replace, deleting multiple lines, or moving to a line number. Insert mode allows you to add text to the file, like your'e used to, but to navigate, you must use the arrow keys. 
+There are many modes in vim. The most important are "normal mode" and "insert mode". Normal mode allows you to enter commands to edit the text. This includes things like find and replace, deleting multiple lines, or moving to a line number. Insert mode allows you to add text to the file, like your'e used to, but to navigate, you must use the arrow keys.
 
-When you start vim, you are in normal mode. To enter insert mode, press `i`. 
+When you start vim, you are in normal mode. To enter insert mode, press `i`.
 
 ### Exiting vim
-To exit vim, first enter normal mode by pressing `esc`. Then to exit, you can type `:q` and press enter. If you have made no changes to the file, it will exit. If you have mad changes, you must chose to save the changes, or discard them. To quit and discard changes, you can type `:q!`. The exclamation mark forces vim to quit, discarding changes. 
+
+To exit vim, first enter normal mode by pressing `esc`. Then to exit, you can type `:q` and press enter. If you have made no changes to the file, it will exit. If you have mad changes, you must chose to save the changes, or discard them. To quit and discard changes, you can type `:q!`. The exclamation mark forces vim to quit, discarding changes.
 
 To save changes at any point, you can type `:w` in normal mode. You can also save and close by typing `:wq`.
 
-
-
-
 ## See also
+
 - [the unix file system](filesys)
 - [interfacing with your virtual machine](interface)
 - the man pages

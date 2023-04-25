@@ -18,7 +18,7 @@ You can follow along with this guide on your own computer. All you'll need is fa
 {: .no_toc .text-delta }
 
 1. TOC
-   {:toc}
+{:toc}
 
 ## Our program
 

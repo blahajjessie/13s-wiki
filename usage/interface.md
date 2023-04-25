@@ -6,16 +6,13 @@ nav_order: 2
 ---
 
 # Interfacing with your VM
-
 {: .no_toc }
 
 ## Table of contents
-
 {: .no_toc .text-delta }
 
 1. TOC
-   {:toc}
-
+{:toc}
 ## Connecting from your host machine terminal
 
 First, to make sure that all of our configuration is correct, let's try connecting to our virtual machine from our host terminal. Begin by starting your virtual machine. If you have the option (virtualbox), use a headless start. This means that your virtual machine is running in the background, but is producing no display output of its own. We need a program to connect to it and use it.
