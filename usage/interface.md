@@ -6,10 +6,10 @@ nav_order: 2
 ---
 
 # Interfacing with your VM
-{: .no_toc }
+{: .no_toc}
 
 ## Table of contents
-{: .no_toc .text-delta }
+{: .no_toc .text-delta}
 
 1. TOC
 {:toc}
