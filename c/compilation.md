@@ -91,7 +91,7 @@ side b: 2
 c = 3.000000
 ```
 
-The side length should be &radic;8 &thickapprox; 2.828. We're going to modify this program to:
+The side length should be &radic;8 &#8776; 2.828. We're going to modify this program to:
 
 - use the built-in math library's `sqrt` function
 - move the `my_hypot` function into another file
