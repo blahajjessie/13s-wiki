@@ -86,7 +86,7 @@ Note that the <code>-P</code> flag is capitalized, unlike in ssh where it's lowe
 
 ## Creating an SSH profile
 
-To make it more convenient to connect to your vm, we can add your virtual machine to your SSH profiles. The ssh command stores profiles in `~/.ssh/config` (this is a plain text file with no extension). Creating this file is kinda hard in windows, but you can do so by typing `notepad .ssh/config` (again, in your home folder) Windows will ask you if you want to make a new file, which you do. On macOS, we can use vim to make the same file `vim ~/.ssh/config`.
+To make it more convenient to connect to your vm, we can add your virtual machine to your SSH profiles. The ssh command stores profiles in `~/.ssh/config` (this is a plain text file with no extension). Creating this file is kinda hard in windows, but you can do so by typing `notepad .ssh/config` (again, in your home folder) Windows will ask you if you want to make a new file, which you do. On macOS, we can use vim to make the same file `vim ~/.ssh/config`. The `.ssh/config` file does not exist by default. It must be created.
 
 Then, we can add the following to the file
 
@@ -113,6 +113,9 @@ Although windows users have already used SCP once now, here is a guide to scp!
 The SCP command's usage is `scp <source> <destination>`
 
 Because we have our SSH profile setup, we can use the name of the profile instead of `<username>@<host_ip>:<filename> -P <port>` (Note that scp uses `-P` instead of `-p` like ssh)
+
+{: .note}
+In all of these instructions, `<ssh_profile_name>` is the name of the profile you created in the section above. You could also specify the username, address, and port, but it is a lot more convenient to use an ssh profile.
 
 If we want to transfer from our host to our guest, we can use the path to our file as our source, and our destination will be `<ssh_profile_name>:<path>`
 
