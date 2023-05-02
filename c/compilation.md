@@ -114,6 +114,9 @@ You may know that in order to call math functions like `sqrt`, you need to do tw
 
 ### Header files
 
+{: .note}
+Never include `.c` files. That's what header files are for. If you include a C file, then all the function definitions are copied in where it gets included, which means that each file that includes it will contain the code for the functions and they will all conflict with each other.
+
 Including a file with `#include` inserts its contents at the position of the `#include` statement, nothing more. Since `<math.h>` uses angle brackets, the preprocessor (which is responsible for processing includes, among other things) looks for a file in the _include path_. If you use quotes instead of angle brackets, the preprocessor looks in the include path as well as the current directory. You can modify the include path, but the default (on Linux, at least) is `/usr/include`. This means that we are including `/usr/include/math.h`, a file that comes with the operating system. You can actually open and view this file! Sadly, it is full of macros and includes other files, so the actual declaration of `sqrt` is not easy to find, but you can imagine that somewhere in that file is the declaration:
 
 ```c
