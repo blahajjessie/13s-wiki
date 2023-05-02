@@ -9,6 +9,8 @@ nav_order: 1
 
 # Compilation, make, object files, etc.
 
+by Ben Grant
+
 This page describes how to compile C programs that are more complex than a single source file. We'll cover how to split code across multiple files, how to compile those files, how to automate the build process using GNU Make, and how to make use of system libraries.
 
 You can follow along with this guide on your own computer. All you'll need is familiarity with the command line and a C programming environment with recent versions of Clang and Make. I would recommend using Linux (either running on your computer, in a virtual machine, or in WSL2). These commands may also work on macOS if you install Clang and Make, but they will _not_ work on Windows if you don't have a Linux environment.
