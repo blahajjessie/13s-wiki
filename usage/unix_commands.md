@@ -35,7 +35,7 @@ Manpages don't just give you documentation for unix commands, but also for stand
 
 To read the manpages, you can use the command `$ man <unix command name/C function name>`. For example, `$ man cd` or `$ man malloc`. The manpages will give you a pretty in-depth explanation on what they do.
 
-Here's some of malloc's manpage: [malloc manpage](/assets/manpage.JPG)
+Here's some of malloc's manpage: ![malloc manpage](assets/manpage.JPG)
 
 If you want to keep your terminal window free to work in, manpages are also available [online](https://www.man7.org/linux/man-pages/man3/malloc.3.html).
 
