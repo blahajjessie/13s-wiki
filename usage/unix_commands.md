@@ -27,9 +27,17 @@ It is *very* hard to learn how to use something by reading a guide. Try these co
 ## The `man` pages
 `man` is short for manual. The manual pages are divided into chapters, each of which explain how to use various parts of the system. 
 
-To close a man page, simply type `q`
+To close a man page, simply type `q`.
 
-`alias woman=man` if you want to be funny
+`alias woman=man` if you want to be funny.
+
+Manpages don't just give you documentation for unix commands, but also for standard C functions. If your VM didn't automatically install them, you can use `$ sudo apt install manpages` to get them.
+
+To read the manpages, you can use the command `$ man <unix command name/C function name>`. For example, `$ man cd` or `$ man malloc`. The manpages will give you a pretty in-depth explanation on what they do.
+
+Here's some of malloc's manpage: [malloc manpage](/assets/manpage.JPG)
+
+If you want to keep your terminal window free to work in, manpages are also available [online](https://www.man7.org/linux/man-pages/man3/malloc.3.html).
 
 ## `echo`
 The `echo` command writes any text following it to the terminal
