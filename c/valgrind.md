@@ -37,29 +37,27 @@ The messages valgrind outputs can be pretty cryptic at times, so in these exampl
 
 ## Definitely Lost Memory
 
-<details open="false">
-    <summary><b>Initial Code: array.c</b></summary>
-    
-    #include <stdlib.h>
-    #include <stdio.h>
+<b>Initial Code: array.c</b>
+```
+#include <stdlib.h>
+#include <stdio.h>
 
-    int *int_array(int length) {
-        return (int *) malloc(sizeof(int) * length);
+int *int_array(int length) {
+    return (int *) malloc(sizeof(int) * length);
+}
+
+int main(void) {
+    int *array = int_array(10);
+
+    for (int i = 0; i < 10; i++) {
+        array[i] = i + 1;
+        printf("%d ", array[i]);
     }
+    printf("\n");
 
-    int main(void) {
-        int *array = int_array(10);
-
-        for (int i = 0; i < 10; i++) {
-            array[i] = i + 1;
-            printf("%d ", array[i]);
-        }
-        printf("\n");
-
-        return 0;
-    }
-
-</details>
+    return 0;
+}
+```
 
 This program allocates an array, fills in its elements, and prints them out. When this program is run on its own, the output works as expected:
 
@@ -110,49 +108,46 @@ Often, it won't be entirely clear what hasn't been freed yet. Following the sugg
 The important stuff are the function names it shows. This will tell us which `malloc()` in our code originally allocated the block of memory that was lost. With that information, we can check to make sure that those specific allocations are also freed properly, instead of checking everywhere we allocate memory.
 
 In our case, we just have to add one line:
-<details open="false">
-    <summary><b>Fixed Code: array.c</b></summary>
-    
-    #include <stdlib.h>
-    #include <stdio.h>
 
-    int *int_array(int length) {
-        return (int *) malloc(sizeof(int) * length);
+<b>Fixed Code: array.c</b>
+```
+#include <stdlib.h>
+#include <stdio.h>
+
+int *int_array(int length) {
+    return (int *) malloc(sizeof(int) * length);
+}
+
+int main(void) {
+    int *array = int_array(10);
+
+    for (int i = 0; i < 10; i++) {
+        array[i] = i + 1;
+        printf("%d ", array[i]);
     }
+    printf("\n");
 
-    int main(void) {
-        int *array = int_array(10);
-
-        for (int i = 0; i < 10; i++) {
-            array[i] = i + 1;
-            printf("%d ", array[i]);
-        }
-        printf("\n");
-
-        free(array); // ADDED A FREE
-        return 0;
-    }
-
-</details>
+    free(array); // ADDED A FREE
+    return 0;
+}
+```
 
 <br/>
 
 ## Invalid Write
 
-<details open="false">
-    <summary><b>Initial Code: char.c</b></summary>
-    
-    #include <stdio.h>
+<b>Initial Code: char.c</b>
+```
+#include <stdio.h>
 
-    int main(void) {
-        char *ptr = NULL;
-        *ptr = 'a';
-        printf("%c", *ptr);
+int main(void) {
+    char *ptr = NULL;
+    *ptr = 'a';
+    printf("%c", *ptr);
 
-        return 0;
-    }
-
-</details>
+    return 0;
+}
+```
 
 If this gets compiled an run, it will result in a segmentation fault:
 ```
@@ -161,40 +156,38 @@ Segmentation fault (core dumped)
 ```
 This is not a very descriptive message, and debugging one is often a long process. Valgrind can give us some more information on what exactly caused it:
 
-<details open="false">
-    <summary><b>Valgrind Output:</b></summary>
-    
-    $ valgrind ./char
-    ==2995== Memcheck, a memory error detector
-    ==2995== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-    ==2995== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-    ==2995== Command: ./char
-    ==2995== 
-    ==2995== Invalid write of size 1
-    ==2995==    at 0x40114B: main (in /home/user/char)
-    ==2995==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-    ==2995== 
-    ==2995== 
-    ==2995== Process terminating with default action of signal 11 (SIGSEGV)
-    ==2995==  Access not within mapped region at address 0x0
-    ==2995==    at 0x40114B: main (in /home/user/char)
-    ==2995==  If you believe this happened as a result of a stack
-    ==2995==  overflow in your program's main thread (unlikely but
-    ==2995==  possible), you can try to increase the size of the
-    ==2995==  main thread stack using the --main-stacksize= flag.
-    ==2995==  The main thread stack size used in this run was 8388608.
-    ==2995== 
-    ==2995== HEAP SUMMARY:
-    ==2995==     in use at exit: 0 bytes in 0 blocks
-    ==2995==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
-    ==2995== 
-    ==2995== All heap blocks were freed -- no leaks are possible
-    ==2995== 
-    ==2995== For lists of detected and suppressed errors, rerun with: -s
-    ==2995== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-    Segmentation fault (core dumped)
-
-</details>
+<b>Valgrind Output:</b>
+``` 
+$ valgrind ./char
+==2995== Memcheck, a memory error detector
+==2995== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2995== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==2995== Command: ./char
+==2995== 
+==2995== Invalid write of size 1
+==2995==    at 0x40114B: main (in /home/user/char)
+==2995==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==2995== 
+==2995== 
+==2995== Process terminating with default action of signal 11 (SIGSEGV)
+==2995==  Access not within mapped region at address 0x0
+==2995==    at 0x40114B: main (in /home/user/char)
+==2995==  If you believe this happened as a result of a stack
+==2995==  overflow in your program's main thread (unlikely but
+==2995==  possible), you can try to increase the size of the
+==2995==  main thread stack using the --main-stacksize= flag.
+==2995==  The main thread stack size used in this run was 8388608.
+==2995== 
+==2995== HEAP SUMMARY:
+==2995==     in use at exit: 0 bytes in 0 blocks
+==2995==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==2995== 
+==2995== All heap blocks were freed -- no leaks are possible
+==2995== 
+==2995== For lists of detected and suppressed errors, rerun with: -s
+==2995== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+Segmentation fault (core dumped)
+```
 
 Again, valgrind gives a very descriptive message that can be daunting decipher. The important information here is:
 ```
