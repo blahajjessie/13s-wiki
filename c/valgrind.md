@@ -71,7 +71,7 @@ Valgrind looks directly at the executable, and doesn't actually know what your C
 
 To make its messages a little easier to read, we can use the `-gdward-4` compiler flag when compiling. This will format the executable using DWARF 4, which you can read more about [here](https://dwarfstd.org/dwarf4std.html).
 
-## Here's a comparison of valgrind's output with, and without DWARF 4:
+## Comparing valgrind's output with, and without DWARF 4:
 
 ### dwarf.c:
 ```
