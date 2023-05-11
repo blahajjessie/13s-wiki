@@ -29,192 +29,134 @@ $ valgrind ./sorter -l 100
 ```
 You just have to put `valgrind` in front of the command you'd normally use to run your program!
 
-# Example Usage
+# Valgrind's Output
 
-The messages valgrind outputs can be pretty cryptic at times, so in these examples you'll see some of the most common ones.
-
-<br/>
-
-## Definitely Lost Memory
-
-<b>Initial Code: array.c</b>
-```
-#include <stdlib.h>
-#include <stdio.h>
-
-int *int_array(int length) {
-    return (int *) malloc(sizeof(int) * length);
-}
-
-int main(void) {
-    int *array = int_array(10);
-
-    for (int i = 0; i < 10; i++) {
-        array[i] = i + 1;
-        printf("%d ", array[i]);
-    }
-    printf("\n");
-
-    return 0;
-}
-```
-
-This program allocates an array, fills in its elements, and prints them out. When this program is run on its own, the output works as expected:
+You'll see a lot of different messages from valgrind, since it's a very robust tool. The end goal is always the same though:
 
 ```
-$ ./array
-1 2 3 4 5 6 7 8 9 10 
+$ valgrind ./example
+==4763== Memcheck, a memory error detector
+==4763== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4763== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==4763== Command: ./example
+==4763== 
+I just used malloc() to make my array!
+Filling it up with...
+0 1 2 3 4 
+And now I use free()
+==4763== 
+==4763== HEAP SUMMARY:
+==4763==     in use at exit: 0 bytes in 0 blocks
+==4763==   total heap usage: 2 allocs, 2 frees, 1,044 bytes allocated
+==4763== 
+==4763== All heap blocks were freed -- no leaks are possible
+==4763== 
+==4763== For lists of detected and suppressed errors, rerun with: -s
+==4763== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 ```
 
-However, if valgrind is run with it:
+You'll want to see just your program's output in the middle (which you can differentiate by the lack of `==####==`). 
+
+In `HEAP SUMMARY`, there should be an equal number of `allocs` and `frees`. 
+
+You should see the message `All heap blocks were freed -- no leaks are possible`. 
+
+And, at the bottom it should say `0 errors from 0 contexts (suppressed: 0 from 0)`.
+
+If the output looks like this, then you know your program successfully passes valgrind.
+
+# DWARF 4
+
+Valgrind looks directly at the executable, and doesn't actually know what your C code looks like. Because of this, figuring out what valgrind is telling can be pretty tricky.
+
+To make its messages a little easier to read, we can use the `-gdward-4` compiler flag when compiling. This will format the executable using DWARF 4, which you can read more about [here](https://dwarfstd.org/dwarf4std.html).
+
+Here's a comparison of valgrind's output with, and without DWARF 4:
+
+### dwarf.c:
 ```
-$ valgrind ./array 
-==2604== Memcheck, a memory error detector
-==2604== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==2604== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==2604== Command: ./array
-==2604== 
-1 2 3 4 5 6 7 8 9 10 
-==2604== 
-==2604== HEAP SUMMARY:
-==2604==     in use at exit: 40 bytes in 1 blocks
-==2604==   total heap usage: 2 allocs, 1 frees, 1,064 bytes allocated
-==2604== 
-==2604== LEAK SUMMARY:
-==2604==    definitely lost: 40 bytes in 1 blocks
-==2604==    indirectly lost: 0 bytes in 0 blocks
-==2604==      possibly lost: 0 bytes in 0 blocks
-==2604==    still reachable: 0 bytes in 0 blocks
-==2604==         suppressed: 0 bytes in 0 blocks
-==2604== Rerun with --leak-check=full to see details of leaked memory
-==2604== 
-==2604== For lists of detected and suppressed errors, rerun with: -s
-==2604== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+1  #include <stdlib.h>
+2  
+3  int main(void) {
+4      int *alloc1 = (int *) malloc(sizeof(int) * 10);
+5      int *alloc2 = (int *) malloc(sizeof(int) * 10);
+6 
+7      free(alloc1);
+8      return 0;
+9  }
 ```
+This program will cause a memory leak since `alloc2` is never free'd.
 
-We can see that 40 bytes were "definitely lost". This is because the array was never freed with:
+### Compiled with: `clang dwarf.c -o dwarf`
 ```
-free(array);
-```
-
-Often, it won't be entirely clear what hasn't been freed yet. Following the suggestion valgrind gives under the leak summary, rerunning with `$ valgrind --leak-check=full ./array` will give us some additional information:
-```
-==2721== 40 bytes in 1 blocks are definitely lost in loss record 1 of 1
-==2721==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2721==    by 0x40115A: int_array (in /home/user/array)
-==2721==    by 0x401188: main (in /home/user/array)
-```
-
-The important stuff are the function names it shows. This will tell us which `malloc()` in our code originally allocated the block of memory that was lost. With that information, we can check to make sure that those specific allocations are also freed properly, instead of checking everywhere we allocate memory.
-
-In our case, we just have to add one line:
-
-<b>Fixed Code: array.c</b>
-```
-#include <stdlib.h>
-#include <stdio.h>
-
-int *int_array(int length) {
-    return (int *) malloc(sizeof(int) * length);
-}
-
-int main(void) {
-    int *array = int_array(10);
-
-    for (int i = 0; i < 10; i++) {
-        array[i] = i + 1;
-        printf("%d ", array[i]);
-    }
-    printf("\n");
-
-    free(array); // ADDED A FREE
-    return 0;
-}
+$ valgrind --leak-check=full ./dwarf
+==2586== Memcheck, a memory error detector
+==2586== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2586== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==2586== Command: ./dwarf
+==2586== 
+==2586== 
+==2586== HEAP SUMMARY:
+==2586==     in use at exit: 40 bytes in 1 blocks
+==2586==   total heap usage: 2 allocs, 1 frees, 80 bytes allocated
+==2586== 
+==2586== 40 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==2586==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2586==    by 0x401166: main (in /home/user/dwarf)
+==2586== 
+==2586== LEAK SUMMARY:
+==2586==    definitely lost: 40 bytes in 1 blocks
+==2586==    indirectly lost: 0 bytes in 0 blocks
+==2586==      possibly lost: 0 bytes in 0 blocks
+==2586==    still reachable: 0 bytes in 0 blocks
+==2586==         suppressed: 0 bytes in 0 blocks
+==2586== 
+==2586== For lists of detected and suppressed errors, rerun with: -s
+==2586== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 ```
 
-<br/>
+Here, valgrind is run with `--leak-check=full` which is useful for figuring out where blocks of memory were lost.
 
-## Invalid Write
-
-<b>Initial Code: char.c</b>
+The useful information is:
 ```
-#include <stdio.h>
-
-int main(void) {
-    char *ptr = NULL;
-    *ptr = 'a';
-    printf("%c", *ptr);
-
-    return 0;
-}
+==2586== 40 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==2586==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2586==    by 0x401166: main (in /home/user/dwarf)
 ```
+This tells us that the leak is from a block allocated with `malloc()` in `main()`. But which `malloc()`? If your program is large, with lots of memory allocations and frees happening, pinning down which `malloc()` this is referring to can be difficult.
 
-If this gets compiled an run, it will result in a segmentation fault:
+### Compiled with: `clang -gdwarf-4 dwarf.c -o dwarf`
 ```
-$ ./char
-Segmentation fault (core dumped)
-```
-This is not a very descriptive message, and debugging one is often a long process. Valgrind can give us some more information on what exactly caused it:
-
-<b>Valgrind Output:</b>
-``` 
-$ valgrind ./char
-==2995== Memcheck, a memory error detector
-==2995== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==2995== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==2995== Command: ./char
-==2995== 
-==2995== Invalid write of size 1
-==2995==    at 0x40114B: main (in /home/user/char)
-==2995==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==2995== 
-==2995== 
-==2995== Process terminating with default action of signal 11 (SIGSEGV)
-==2995==  Access not within mapped region at address 0x0
-==2995==    at 0x40114B: main (in /home/user/char)
-==2995==  If you believe this happened as a result of a stack
-==2995==  overflow in your program's main thread (unlikely but
-==2995==  possible), you can try to increase the size of the
-==2995==  main thread stack using the --main-stacksize= flag.
-==2995==  The main thread stack size used in this run was 8388608.
-==2995== 
-==2995== HEAP SUMMARY:
-==2995==     in use at exit: 0 bytes in 0 blocks
-==2995==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
-==2995== 
-==2995== All heap blocks were freed -- no leaks are possible
-==2995== 
-==2995== For lists of detected and suppressed errors, rerun with: -s
-==2995== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-Segmentation fault (core dumped)
+$ valgrind --leak-check=full ./dwarf
+==2742== Memcheck, a memory error detector
+==2742== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2742== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==2742== Command: ./dwarf
+==2742== 
+==2742== 
+==2742== HEAP SUMMARY:
+==2742==     in use at exit: 40 bytes in 1 blocks
+==2742==   total heap usage: 2 allocs, 1 frees, 80 bytes allocated
+==2742== 
+==2742== 40 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==2742==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2742==    by 0x401166: main (dwarf.c:5)
+==2742== 
+==2742== LEAK SUMMARY:
+==2742==    definitely lost: 40 bytes in 1 blocks
+==2742==    indirectly lost: 0 bytes in 0 blocks
+==2742==      possibly lost: 0 bytes in 0 blocks
+==2742==    still reachable: 0 bytes in 0 blocks
+==2742==         suppressed: 0 bytes in 0 blocks
+==2742== 
+==2742== For lists of detected and suppressed errors, rerun with: -s
+==2742== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 ```
 
-Again, valgrind gives a very descriptive message that can be daunting decipher. The important information here is:
+Looking at the same section:
 ```
-==2995== Invalid write of size 1
-==2995==    at 0x40114B: main (in /home/user/char)
-==2995==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==2742== 40 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==2742==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2742==    by 0x401166: main (dwarf.c:5)
 ```
-
-This is telling us that the program tried to "write" to a memory address it was not allowed to. The address it was trying to access was `0x0`, which is `NULL`.
-
-Since the `ptr` variable is `NULL`, yet is trying to be dereferenced:
-```
-char *ptr = NULL;
-*ptr = 'a';
-```
-
-To fix this, we can either create a variable for `ptr` to reference:
-
-```
-char letter;
-char *ptr = &letter;
-*ptr = 'a';
-```
-
- or allocate memory for `ptr` to reference:
-
-```
-char *ptr = (char *) malloc(sizeof(char));
-*ptr = 'a';
-```
+Next to `main` it now says that the leak is from the `malloc()` on line 5 in dwarf.c, which is the `malloc()` for the `alloc2` array.
