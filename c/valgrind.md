@@ -11,7 +11,7 @@ By Anthony Umemoto
 
 # What is Valgrind?
 
-Valgrind is diagnostics tool that watches how your program is using memory. Getting comfortable using valgrind will be a useful skill when debugging those dreaded memory leaks.
+Valgrind is a diagnostics tool that watches how your program is using memory. Getting comfortable using valgrind will be a useful skill when debugging those dreaded memory leaks.
 
 To install valgrind, use the command:
 ```
@@ -67,11 +67,11 @@ If the output looks like this, then you know your program successfully passes va
 
 # DWARF 4
 
-Valgrind looks directly at the executable, and doesn't actually know what your C code looks like. Because of this, figuring out what valgrind is telling can be pretty tricky.
+Valgrind looks directly at the executable, and doesn't actually know what your C code looks like. Because of this, figuring out what valgrind is telling you can be pretty tricky.
 
 To make its messages a little easier to read, we can use the `-gdward-4` compiler flag when compiling. This will format the executable using DWARF 4, which you can read more about [here](https://dwarfstd.org/dwarf4std.html).
 
-Here's a comparison of valgrind's output with, and without DWARF 4:
+## Here's a comparison of valgrind's output with, and without DWARF 4:
 
 ### dwarf.c:
 ```
@@ -80,10 +80,9 @@ Here's a comparison of valgrind's output with, and without DWARF 4:
 3  int main(void) {
 4      int *alloc1 = (int *) malloc(sizeof(int) * 10);
 5      int *alloc2 = (int *) malloc(sizeof(int) * 10);
-6 
-7      free(alloc1);
-8      return 0;
-9  }
+6      free(alloc1);
+7      return 0;
+8  }
 ```
 This program will cause a memory leak since `alloc2` is never free'd.
 
@@ -160,3 +159,44 @@ Looking at the same section:
 ==2742==    by 0x401166: main (dwarf.c:5)
 ```
 Next to `main` it now says that the leak is from the `malloc()` on line 5 in dwarf.c, which is the `malloc()` for the `alloc2` array.
+
+## Using `-gdwarf-4` in Your Makefiles
+
+You'll want to use `-gdwarf-4` as one of the compiler flags in your Makefiles. However, using DWARF 4 results in a larger and slower executable, so it's best practice to have two targets: one for a debugging executable, and one for a "release" executable.
+
+This can be accomplished by having the compiler flags variable set depending on which target is being compiled.
+
+### Makefile:
+```
+CC     = clang
+BASICS = -Wall -Wextra -Werror -pedantic -Wstrict-prototypes
+
+debug:   CFLAGS = $(BASICS) -gdwarf-4
+release: CFLAGS = $(BASICS)
+
+EXE = hello
+OBJ = hello.o
+
+debug: $(EXE)
+release: $(EXE)
+
+$(EXE): $(OBJ)
+	$(CC) -o $@ $^
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c $<
+
+```
+
+### Output:
+```
+$ make debug
+clang -Wall -Wextra -Werror -pedantic -Wstrict-prototypes -gdwarf-4 -c hello.c
+clang -o hello hello.o
+
+...
+
+$ make release
+clang -Wall -Wextra -Werror -pedantic -Wstrict-prototypes -c hello.c
+clang -o hello hello.o
+```
