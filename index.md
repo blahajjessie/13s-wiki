@@ -47,26 +47,6 @@ I am not posting this to be rude. I am posting this because it is a skill that s
 {: .tip}
 When you include an image when you ask for help, don't just take a picture with your phone, [take a screenshot](https://take-a-screenshot.org)
 
-## Installing Your VM
-
-{: .warning}
-These instructions are untested on some platforms (mostly macos). Feel free to contact course staff if you have any issues
-
-
-
-
-## Working with Ubuntu
-
-{: .tip}
-Most of these pages are empty or incomplete right now. Please bear with me until I finish these. 
-
-These pages give a general summary of commands in terminal, and allow setup of a complete development environment that integrates well into your host system. 
-
-## Temporary homepage
-
-Some pages and guides are not posted here yet. Please also check out the google doc
-
-For now, use the [google doc](https://docs.google.com/document/d/12R1CSeNHjmlxgIo25Eb99dfeIvLUl209598mz43hifk/edit#heading=h.gcqo22qxnlwe) as the homepage. This page is still under development, but guides will be posted here as they are created. 
 
 
 ## Credits
