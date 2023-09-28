@@ -12,6 +12,8 @@ nav_order: 1
 
 argc, argv, getopt, optarg, oh my
 
+by Ben Grant
+
 {: .no_toc}
 
 ## Table of contents
