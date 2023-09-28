@@ -31,14 +31,14 @@ Visit the website for UTM and download the latest version
 1. Press "Create VM"
 ![create](imgs/mac_inst/create_vm.png)
 
-2. Make sure it is "Virtualized" not "Emulated
-![virtualize](imgs/mac_inst/virt.png)
+2. Make sure you select "Emulate" not "Virtualize"
+![virtualize](imgs/mac_inst/virt.png), as we will be using an emulated x86 system on arm
 
 3.  Add the ISO file that you downloaded. 
 
-{: .tip}
+<!-- {: .tip}
 Unlike me, **make sure that you are using the ARM64 version**
-<br> Also, make sure it is `ubuntu 22.04-live-server-arm64`
+<br> Also, make sure it is `ubuntu 22.04-live-server-arm64` -->
 
 ![iso](imgs/mac_inst/iso.png)
 
