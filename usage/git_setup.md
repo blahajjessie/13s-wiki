@@ -16,7 +16,7 @@ You should now see 2 new files in the `~/.ssh` folder. These will be called `id_
     ssh-rsa <many random characters> username@hostname
 
 
-{: warn} 
+{: .warning} 
 Do not let anyone see your private key. Make sure you upload `id_rsa.pub` to gitlab, not `id_rsa`
 
 
