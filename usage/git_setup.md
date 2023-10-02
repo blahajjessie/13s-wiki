@@ -15,8 +15,10 @@ You should now see 2 new files in the `~/.ssh` folder. These will be called `id_
 
     ssh-rsa <many random characters> username@hostname
 
+
 {: warn} 
 Do not let anyone see your private key. Make sure you upload `id_rsa.pub` to gitlab, not `id_rsa`
+
 
 To prove ownership of your gitlab account, you need to upload your public key. Navigate to preferences in gitlab, and open the "ssh keys" page. Press "Add new key" and paste the contents of your public key into gitlab. You may change the key title if you wish, but you do not need to modify any other settings. 
 
