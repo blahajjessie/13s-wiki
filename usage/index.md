@@ -49,7 +49,7 @@ As discussed above, keyboard shortcuts with the control key do things you may no
 
 ## Required Software
 You will need the following packages for this class (for now)
-If you know what you're doing, you can install them now. If you don't, wait until I finish the guide
+If you know what you're doing, you can install them now. Otherwise, read the guide for more info
 
 - `git` (should already be installed)
 - `clang`
@@ -63,13 +63,13 @@ If you know what you're doing, you can install them now. If you don't, wait unti
 ## About git
 
 Git is a tool for Version control. This lets you keep past versions of your code/projects without taking up space. It requires at least a client and a server. For the purposes of this class, the git server we will be using is [git.ucsc.edu](https://git.ucsc.edu). In this class, we will (probably) not be using git with multiple users or branches. Therefore, there are very few commands you will need to know if you use it correctly. 
-Usage of these can be found on the [git page](git_setup).
+<!-- Usage of these can be found on the [git page](git_setup). -->
 
 
 
 ## Navigating the File system via terminal
-see [the page on files and directories](files_dirs)
+See [the page on files and directories](files_dirs)
 
 ## Installing Software
-
+To learn how to install software, please see the page on [unix commands](unix_commands)
 

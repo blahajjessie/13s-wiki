@@ -28,6 +28,7 @@ Before you begin, make sure that you have downloaded the ubuntu image for your c
 
 <!-- - If you have an Apple silicon mac (M1, M2, etc), You will need to use the [arm64 versions](https://ubuntu.com/download/server/arm). -->
 - If you have a Intel/AMD windows computer, you will need the [amd64 version](https://ubuntu.com/download/server). You will still need this if you have an Intel CPU. 
+- If you have an apple silicon Mac, also download the [amd64 version](https://ubuntu.com/download/server) and *not* the arm version. 
 - If you have an Intel Mac, follow the windows instructions
 - If your configuration is not one of these, please contact a Jess or TA during lab sections. 
 
