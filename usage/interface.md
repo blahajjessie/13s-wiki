@@ -120,7 +120,7 @@ If you are somewhere else, you can enter that folder by typing <code>cd C:\Users
 <li>We now have to rename <code>config.txt</code> to <code> config</code>. Use <code>mv .ssh/config.txt .ssh/config</code>
 </li>
 
-<li> Just to make sure, type <code>ls .ssh</code>
+<li> Just to make sure, type <code>ls .ssh</code></li>
 </ul>
 
 </details>
