@@ -115,7 +115,7 @@ Chances are, windows saved <code>config</code> incorrectly. You have to go back 
 If you are somewhere else, you can enter that folder by typing <code>cd C:\Users\username</code>
 </li>
 
-<li>Make sure you are using windows PowerShell, not command prompt. If you are using windows terminal (as you should be), it can open a window of either one. Be sure to use powershell (it has a blue icon)
+<li>Make sure you are using windows PowerShell, not command prompt. If you are using windows terminal (as you should be), it can open a window of either one. Be sure to use powershell (it has a blue icon) </li>
 
 <li>We now have to rename <code>config.txt</code> to <code> config</code>. Use <code>mv .ssh/config.txt .ssh/config</code>
 </li>
