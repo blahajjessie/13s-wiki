@@ -83,7 +83,9 @@ Note that the <code>-P</code> flag is capitalized, unlike in ssh where it's lowe
 
 ## Creating an SSH profile
 
-To make it more convenient to connect to your vm, we can add your virtual machine to your SSH profiles. The ssh command stores profiles in `~/.ssh/config` (this is a plain text file with no extension). Creating this file is kinda hard in windows, but you can do so by typing `notepad .ssh/config` (again, in your home folder) Windows will ask you if you want to make a new file, which you do. On macOS, we can use vim to make the same file `vim ~/.ssh/config`. The `.ssh/config` file does not exist by default. It must be created.
+To make it more convenient to connect to your vm, we can add your virtual machine to your SSH profiles. The ssh command stores profiles in `~/.ssh/config` (this is a plain text file with no extension). Creating this file is kinda hard in windows, but you can do so by typing `notepad .ssh/config` (again, in your home folder) Windows will ask you if you want to make a new file, which you do. 
+
+On macOS, we can use vim to make the same file `vim ~/.ssh/config`. The `.ssh/config` file does not exist by default. It must be created.
 
 Then, we can add the following to the file
 
@@ -100,6 +102,28 @@ An explanation of the config file:
 - Hostname is the ip address of your vm. In this case, it is running on `localhost`
 - Port is the port that you have forwarded
 - Username is the username on your vm account
+
+{: .note} 
+Windows users need to do one more step, see below!
+
+<details>
+<summary>Renaming config.txt</summary>
+Chances are, windows saved <code>config</code> incorrectly. You have to go back and change that
+
+<ul>
+<li>Make sure you're in your windows home folder. This is <code>C:\Users\Username</code> <br>
+If you are somewhere else, you can enter that folder by typing <code>cd C:\Users\username</code>
+</li>
+
+<li>Make sure you are using windows PowerShell, not command prompt. If you are using windows terminal (as you should be), it can open a window of either one. Be sure to use powershell (it has a blue icon)
+
+<li>We now have to rename <code>config.txt</code> to <code> config</code>. Use <code>mv .ssh/config.txt .ssh/config</code>
+</li>
+
+<li> Just to make sure, type <code>ls .ssh</code>
+</ul>
+
+</details>
 
 ## Using SCP
 
