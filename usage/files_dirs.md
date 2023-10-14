@@ -75,7 +75,7 @@ given a file (or folder) and a destination, it copies the file to the destinatio
 ## `mv`
 
 given a file (or folder) and a destination, it moves the file to the destination.
-`mv` can also be used to rename a file! If we moe a file to the same location, but with a different name, it is the same as renaming it. We can do this using `mv <oldname> <newname>`
+`mv` can also be used to rename a file! If we move a file to the same location, but with a different name, it is the same as renaming it. We can do this using `mv <oldname> <newname>`
 
 ## `vim`
 

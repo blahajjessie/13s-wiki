@@ -268,7 +268,7 @@ We `#include` headers, not C files, because the C file is going to be compiled s
 You may already be thinking of some other changes we'll have to make to `hypot.c`. Let's add `mathlib.c` as an input file to our last compilation command, and try compiling this:
 
 ```
-$ clang -Wall -Wextra -Werror -Wstrict-prototypes pedantic hypot.c mathlib.c -o hypot -lm
+$ clang -Wall -Wextra -Werror -Wstrict-prototypes -pedantic hypot.c mathlib.c -o hypot -lm
 /usr/bin/ld: /tmp/mathlib-5b7ded.o: in function `my_hypot':
 mathlib.c:(.text+0x0): multiple definition of `my_hypot'; /tmp/hypot-96432d.o:hypot.c:(.text+0x0): first defined here
 clang-12: error: linker command failed with exit code 1 (use -v to see invocation)
