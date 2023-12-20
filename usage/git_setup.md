@@ -131,7 +131,7 @@ A **`.gitignore`** file does just that, it tells the Git system what to ignore w
 
 The `.gitignore` file is to be at the top level of your repo (i.e, in the same visible folder as the .git folder) and should generally always exist no matter the project. Some repo hosting sites provide template .gitignore’s when you specify what the primary language of the project will be!
 
-> If git add is not detecting .gitignore, use git add -f .gitignore to force the staging.
+> If `git add` is not detecting .gitignore, use `git add -f .gitignore` to force the staging.
 
 For any programming class, it’s generally not appreciated to leave IDE artifacts (`.vscode`, `.idea`, `.metadata`, etc.) as your personal development settings have nothing to do with the code (and may even contain some secrets). For a C class, you should make sure to **never commit object files (extension `.o`) or executables** (these can be harder to track on UNIX where `.exe` is not needed to designate executable files, be aware of what is staged using `git status`!).
 
