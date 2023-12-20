@@ -92,15 +92,15 @@ The following diagram shows the relationship between the **working directory** (
 |-----------|---------------------------------------------------|
 | **`git clone`** `<url> [name for the resulting directory]`                  | Clone a remote repository into a local directory. |
 | **`git add`** `<file1> [file2] … [file_n]`<BR><BR>`git add -f .dotfilename` | Stage a file’s changes into the staging area to be committed in the future.<BR><BR>*This doesn’t mean “add” in the sense that there is also a “git delete”.*  This means to “stage the latest changes, including deletion, of a file.” If you need to delete a file from your repo, you should delete it locally, add that change, and push again.<BR><BR>Dot files (such as `.gitignore`) tend to get ignored by git, force adding it by using the `-f` flag.<BR><BR>NOTE: `git add .` adds ANY modified file into the staging area. I highly recommend **never** doing this, else risk committing something you didn’t want to. Use TAB to autocomplete file names on the command line.|
-| **`git restore`**<BR><BR>`git restore --staged <file>`	| Restores a file to the most up-to-date history for it in the commits.<BR><BR>Also used to remove files that were accidentally staged (WITHOUT reverting, just un-staging).|
-| **`git commit`**<BR><BR>`git commit -m “string msg”` | Commit files that are in the staging area with a message. You almost always have to specify the -m and commit message.<BR><BR>A commit goes into your local repository, it is not yet to the remote.|
-| **`git push`** `[remote] [branch]` | Push commits that are on your local repository onto the online repository. **Local -> Remote.**<BR><BR>As mentioned earlier, I recommend always specifying the remote and branch names, such as “`git push origin main`”, to indicate I am pushing onto the branch called `main` of the remote called `origin`. |
-| **`git pull`** `[remote] [branch]` | Pull the remote repository onto your local repository. **Remote -> Local.**<BR><BR>It is good practice to do this before starting any work session, especially if you work across different devices. Many, many horrendous errors can occur if your local and remote repos do not agree on the correct history.|
-| **`git log`** | Shows the history of previous commits, their full hash codes, and other information.<BR><BR>Similar to Vim, press q to escape the view, and use the arrow keys to go up and down.<BR><BR>**Note**: if you are unable to push (maybe the GitLab server is not working) your final commit for an assignment, use this to get the hash and submit to Canvas anyway, then push ASAP when it is possible! |
-| **`git remote`**<BR><BR>`git remote -v`| Get information about the remotes associated with the repo.<BR><BR>Use the option `-v` to get verbose information about the URLs associated with the remotes. You will usually see a (fetch) and/or (push) to indicate what the remote supports. |
-| **`git status`**<BR><BR>`git status -uno` | Get the current status of the repo, including what is currently in the staging area.<BR><BR>Use `-uno` to only see tracked files that have a recorded history within the repo (helpful when you have a crowded folder). |
-| **`git checkout`** `<path/branch>` | Update the current working file with the latest version of that file/branch from your local repo. | 
-| **`git config`**| Used to configure your Git settings (those files in `.git` are modified through this). If the value you use has spaces, i.e “Sammy Slug”, put quotes around it. |
+| **`git restore`**<BR><BR>`git restore --staged <file>`	                  | Restores a file to the most up-to-date history for it in the commits.<BR><BR>Also used to remove files that were accidentally staged (WITHOUT reverting, just un-staging).|
+| **`git commit`**<BR><BR>`git commit -m “string msg”`                        | Commit files that are in the staging area with a message. You almost always have to specify the -m and commit message.<BR><BR>A commit goes into your local repository, it is not yet to the remote.|
+| **`git push`** `[remote] [branch]`       | Push commits that are on your local repository onto the online repository. **Local -> Remote.**<BR><BR>As mentioned earlier, I recommend always specifying the remote and branch names, such as “`git push origin main`”, to indicate I am pushing onto the branch called `main` of the remote called `origin`. |
+| **`git pull`** `[remote] [branch]`       | Pull the remote repository onto your local repository. **Remote -> Local.**<BR><BR>It is good practice to do this before starting any work session, especially if you work across different devices. Many, many horrendous errors can occur if your local and remote repos do not agree on the correct history.|
+| **`git log`**                            | Shows the history of previous commits, their full hash codes, and other information.<BR><BR>Similar to Vim, press q to escape the view, and use the arrow keys to go up and down.<BR><BR>**Note**: if you are unable to push (maybe the GitLab server is not working) your final commit for an assignment, use this to get the hash and submit to Canvas anyway, then push ASAP when it is possible! |
+| **`git remote`**<BR><BR>`git remote -v`  | Get information about the remotes associated with the repo.<BR><BR>Use the option `-v` to get verbose information about the URLs associated with the remotes. You will usually see a (fetch) and/or (push) to indicate what the remote supports. |
+| **`git status`**<BR><BR>`git status -uno`   | Get the current status of the repo, including what is currently in the staging area.<BR><BR>Use `-uno` to only see tracked files that have a recorded history within the repo (helpful when you have a crowded folder). |
+| **`git checkout`** `<path/branch>`          | Update the current working file with the latest version of that file/branch from your local repo. | 
+| **`git config`**                         | Used to configure your Git settings (those files in `.git` are modified through this). If the value you use has spaces, i.e “Sammy Slug”, put quotes around it. |
 
 
 
@@ -120,9 +120,9 @@ Here’s some that you would greatly benefit from exploring, and you may have to
 
 | Command   | Explanation                                       |
 |-----------|---------------------------------------------------|
-| **`git merge`**                  | Attempt to merge the code of two branches into one.<BR><BR>Merge conflicts are a rite of passage. Learning how to deal with them is important. If you are diligent about pushing/pulling as required, you will hopefully not fall into a need to merge. |
-| **`git rebase`** | Rebase your branch to settle history. |
-| **`git stash`** |  A half-way between saving and committing.<BR><BR> Useful if you want to keep something, but have not committed to it (ha ha). |
+| **`git merge`**      | Attempt to merge the code of two branches into one.<BR><BR>Merge conflicts are a rite of passage. Learning how to deal with them is important. If you are diligent about pushing/pulling as required, you will hopefully not fall into a need to merge. |
+| **`git rebase`**     | Rebase your branch to settle history. |
+| **`git stash`**      |  A half-way between saving and committing.<BR><BR> Useful if you want to keep something, but have not committed to it (ha ha). |
 
 
 ## `.gitignore`
