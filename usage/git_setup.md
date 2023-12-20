@@ -45,5 +45,3 @@ by Sneha De
 
 {: .no_toc}
 
-
-
