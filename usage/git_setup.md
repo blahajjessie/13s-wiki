@@ -120,7 +120,7 @@ Here’s some that you would greatly benefit from exploring, and you may have to
 
 | Command   | Explanation                                       |
 |-----------|---------------------------------------------------|
-| **`git merge`**      | Attempt to merge the code of two branches into one.<BR><BR>Merge conflicts are a rite of passage. Learning how to deal with them is important. If you are diligent about pushing/pulling as required, you will hopefully not fall into a need to merge. |
+| **`git merge`**      | Attempt to merge the code of two divergent branches (or commits) into one.<BR><BR>Merge conflicts are a rite of passage. Learning how to deal with them is important. If you are diligent about pushing/pulling as required, you will hopefully not fall into a need to merge. |
 | **`git rebase`**     | Rebase your branch to settle history. |
 | **`git stash`**      |  A half-way between saving and committing.<BR><BR> Useful if you want to keep something, but have not committed to it (ha ha). |
 
