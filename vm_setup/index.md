@@ -18,17 +18,18 @@ nav_order: 2
 ## Prep Your Machine
 
 {: .tip} 
-These instructions (especially the software versions) are only applicable for Prof. Veenstra in Fall 2023. If you are viewing this in the future or for a different class or section, these instruction may be different, or require different software. Check with your instructor. 
+These instructions (especially the software versions) are only applicable for Spring 2024 (Either Section). If you are viewing this in the future or for a different class or section, these instruction may be different, or require different software. Check with your instructor. 
 
 
-Before you begin, make sure that you have downloaded the ubuntu image for your class and your architecture. This is ubuntu 22.04 x68_64 (also called amd64).
+Before you begin, make sure that you have downloaded the ubuntu image for your class and your architecture. This is ubuntu 22.04 in either x86 or arm. 
+You may see an extra number, like `22.04.03`. That is just a slightly newer release, and is perfectly fine. 
 
 {: .warning}
 **For Any system, You want the 22.04 Server versions**
 
-<!-- - If you have an Apple silicon mac (M1, M2, etc), You will need to use the [arm64 versions](https://ubuntu.com/download/server/arm). -->
-- If you have a Intel/AMD windows computer, you will need the [amd64 version](https://ubuntu.com/download/server). You will still need this if you have an Intel CPU. 
-- If you have an apple silicon Mac, also download the [amd64 version](https://ubuntu.com/download/server) and *not* the arm version. 
+- If you have an Apple silicon mac (M1, M2, etc), You will need to use the [arm64 versions](https://ubuntu.com/download/server/arm).
+- If you have a Intel/AMD windows computer, you will need the [amd64 version](https://ubuntu.com/download/server).
+<!-- - If you have an apple silicon Mac, also download the [amd64 version](https://ubuntu.com/download/server) and *not* the arm version.  -->
 - If you have an Intel Mac, follow the windows instructions
 - If your configuration is not one of these, please contact a Jess or TA during lab sections. 
 
@@ -49,8 +50,6 @@ You will also need quite a bit (minimum 20gb, ideally 40gb) of free space. If yo
 
 [These instructions have been configured for Ubuntu 22.04 Server](ubuntu_2204_server)
 
-This list may be updated to include other versions later. 
-
 ## Powering off your VM
 
 {: .warning}
@@ -70,12 +69,17 @@ This is *not* the definitive list of everything we need for this class. It is *o
 - git
 - clang
 - clang-format
+- clang-tools
 - valgrind
 - make
 
-### Helpful additions
-    
-- idk yet
+### Interfacing with your VM
+To make your life *much* easier, we require that you follow the steps in [interfacing with your vm](/usage/interface) now. This will enable you to do things like copy/paste, and resize your VM window. 
+
+{: .warning}
+You must do these steps.
+
+
 
 ## See Also:
 
