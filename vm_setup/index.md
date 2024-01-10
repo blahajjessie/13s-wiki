@@ -74,6 +74,7 @@ This is *not* the definitive list of everything we need for this class. It is *o
 - make
 
 ### Interfacing with your VM
+
 To make your life *much* easier, we require that you follow the steps in [interfacing with your vm](/usage/interface) now. This will enable you to do things like copy/paste, and resize your VM window. 
 
 {: .warning}
