@@ -63,9 +63,8 @@ If you know what you're doing, you can install them now. Otherwise, read the gui
 ## About git
 
 Git is a tool for Version control. This lets you keep past versions of your code/projects without taking up space. It requires at least a client and a server. For the purposes of this class, the git server we will be using is [git.ucsc.edu](https://git.ucsc.edu). In this class, we will (probably) not be using git with multiple users or branches. Therefore, there are very few commands you will need to know if you use it correctly. 
-<!-- Usage of these can be found on the [git page](git_setup). -->
 
-
+Read more on the [git page](git_setup).
 
 ## Navigating the File system via terminal
 See [the page on files and directories](files_dirs)
