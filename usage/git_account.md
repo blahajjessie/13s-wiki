@@ -15,7 +15,8 @@ has_toc: true
 1. TOC
 {:toc}
 
-{: .warning} These steps are *required* to complete this class. Please be sure to follow them carefully in order to avoid issues.
+{: .warning}
+These steps are *required* to complete this class. Please be sure to follow them carefully in order to avoid issues.
 
 ## What is gitlab
 
@@ -29,7 +30,8 @@ Creating an account is the easy part. Navigate to the UCSC gitlab and log in wit
 
 Occasionally, the UCSC gitlab servers encounter a bug where your account username does not match your cruzid. If you encounter this bug, our scripts will not work and it is your job to fix it. 
 
-{: .warning} You MUST make sure that your account was created correctly, and fix it if it was not to complete the assignments for this class. Please do so immediately after you create your account. 
+{: .warning}
+You MUST make sure that your account was created correctly, and fix it if it was not to complete the assignments for this class. Please do so immediately after you create your account. 
 
 To check that your account was created correctly, click on your profile picture in the top left corner. 
 
