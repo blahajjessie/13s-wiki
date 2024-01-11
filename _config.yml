@@ -2,18 +2,19 @@ title: The ultimate guide to cse13s
 description: Tips and guides to do everything you will need in cse13s
 
 # Theme
-remote_theme: just-the-docs/just-the-docs
-#theme: "just-the-docs"
+# remote_theme: just-the-docs/just-the-docs
+theme: "just-the-docs"
 
 color_scheme: dark
 url: 13s-wiki.jessie.id
 aux_links:
-Template Repository: https://github.com/just-the-docs/just-the-docs-template
+
+  Template Repository: https://github.com/just-the-docs/just-the-docs-template
 
 plugins:
   - jekyll-default-layout
 
-logo: "/assets/images/just-the-docs.png"
+logo: "monke.png"
 
 callouts:
   warning:

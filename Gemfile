@@ -8,5 +8,4 @@ gem "just-the-docs", "0.4.2" # pinned to the current release
 
 gem "jekyll-default-layout"
 
-
 gem "json", "~> 2.7"
