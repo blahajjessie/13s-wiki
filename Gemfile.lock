@@ -38,6 +38,7 @@ GEM
       jekyll (>= 3.8, < 5.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
+    json (2.7.1)
     just-the-docs (0.4.2)
       jekyll (>= 3.8.5)
       jekyll-seo-tag (>= 2.0)
@@ -76,6 +77,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 4.3)
   jekyll-default-layout
+  json (~> 2.7)
   just-the-docs (= 0.4.2)
 
 BUNDLED WITH
