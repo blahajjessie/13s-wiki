@@ -43,6 +43,8 @@ You should see your name and your cruzid underneath. If you see `@<cruzid>`, you
 
 If your account was created incorrectly, do the following steps:
 
+![changing your account name](assets/name.png)
+
 1. Click on "Edit profile"
 2. Click "Account" on the left side navigation bar
 3. On the "Change username" section, change your username to your cruizd. Be sure to type this exactly. 
