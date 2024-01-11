@@ -6,6 +6,10 @@ gem "jekyll", "~> 4.3" # installed by `gem jekyll`
 gem "just-the-docs", "0.4.2" # pinned to the current release
 # gem "just-the-docs"        # always download the latest release
 
+gem "jekyll-include-cache"
+
+gem "jekyll-remote-theme"
+
 gem "jekyll-default-layout"
 
 gem "json", "~> 2.7"

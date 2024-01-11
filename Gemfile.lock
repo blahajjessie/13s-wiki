@@ -32,6 +32,13 @@ GEM
       webrick (~> 1.7)
     jekyll-default-layout (0.1.5)
       jekyll (>= 3.0, < 5.0)
+    jekyll-include-cache (0.2.1)
+      jekyll (>= 3.7, < 5.0)
+    jekyll-remote-theme (0.4.3)
+      addressable (~> 2.0)
+      jekyll (>= 3.5, < 5.0)
+      jekyll-sass-converter (>= 1.0, <= 3.0.0, != 2.0.0)
+      rubyzip (>= 1.3.0, < 3.0)
     jekyll-sass-converter (2.2.0)
       sassc (> 2.0.1, < 3.0)
     jekyll-seo-tag (2.8.0)
@@ -61,6 +68,7 @@ GEM
       ffi (~> 1.0)
     rexml (3.2.5)
     rouge (4.0.0)
+    rubyzip (2.3.2)
     safe_yaml (1.0.5)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -77,6 +85,8 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 4.3)
   jekyll-default-layout
+  jekyll-include-cache
+  jekyll-remote-theme
   json (~> 2.7)
   just-the-docs (= 0.4.2)
 
