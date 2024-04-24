@@ -7,7 +7,7 @@ nav_order: 99
 
 # For Students with Loaner Laptops
 
-If you're on this page, it's because you've borrowed one of our laptops that has VirtualBox already set up.
+If you're on this page, it's because you've borrowed one of our laptops that has VirtualBox already set up. If that's not you, [go back to the main page](index) and follow the instructions for whichever type of personal computer you have.
 
 ## Logging in
 
